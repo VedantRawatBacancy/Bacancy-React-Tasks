@@ -1,0 +1,32 @@
+.hero{
+    justify-content: center;
+    height: 70vh;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 2em;
+    transition: 0.8s ease-in-out;
+    box-shadow: 0 0 5px #121212;
+}
+
+.hero:hover{
+    border-radius: 3em;
+    transition: 3s ease-in-out;
+    box-shadow: 0 0 10px #000;
+}
+
+.hero > img{
+    
+    width: 100%;
+    height: auto;
+    transition: 0.5s ease-in-out;
+}
+
+.hero > img:hover{
+    transform: rotate(10deg) scale(160%);
+    transition: 10s ease-in-out;
+}
+/* 
+.hero >img:hover{
+    transform: ;
+} */
+
