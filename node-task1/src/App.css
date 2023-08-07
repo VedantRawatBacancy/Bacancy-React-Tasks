@@ -1,0 +1,23 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.container{
+  place-items: middle;
+  justify-content: center;
+  align-items: center;
+  /* min-width: 50vw; */
+  padding: 1.5em;
+  border-radius: 1.5em;
+  background-color: #323031;
+}
+/* 
+input{
+  color: #121212;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  width: 100%;
+} */
