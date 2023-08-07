@@ -1,0 +1,12 @@
+.danger{
+    background-color: #323031;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+    transition: 0.5s ease;
+  }
+  
+  .danger:hover{
+    background-color: rgb(194, 16, 16);
+    border-color: red;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.8);
+    transition: 0.5s ease;
+  }
