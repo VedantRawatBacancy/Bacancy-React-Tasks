@@ -7,6 +7,8 @@ import Effect2 from "./components/Effect2";
 import Effect3 from "./components/Effect3";
 import Effect4 from "./components/Effect4";
 
+//Hello
+
 function App() {
   return (
     <>
