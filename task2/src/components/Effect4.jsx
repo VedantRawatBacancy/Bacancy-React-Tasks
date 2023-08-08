@@ -14,14 +14,16 @@ function Effect4() {
     setValue(input);
     toast.success(input, {
         style: {
-          border: '1px solid #217ed4',
+          border: '1px solid cyan',
           padding: '1.4em',
-          color: '#217ed4',
-          boxShadow: '0 0 0.7em #000',
+          color: 'white',
+          boxShadow: '0 0.2em 0.45em rgba(0,0,0,0.75)',
+          background: '#121415',
+          wordBreak: 'break-all',
         },
         iconTheme: {
-          primary: '#217ed4',
-          secondary: '#FFFAEE',
+          primary: 'cyan',
+          secondary: '#121415',
         },
       });
   };
