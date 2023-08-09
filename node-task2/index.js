@@ -52,7 +52,7 @@ const x = fs.readFile("./Train.csv", "utf8", (err, data) => {
     }
     groupedData.get(item.trainNo).push(item);
   });
-    
+
   //PUSHING ELEMENTS FROM MAP INTO AN ARRAY
 
   for (const t of groupedData) {
@@ -210,35 +210,51 @@ const x = fs.readFile("./Train.csv", "utf8", (err, data) => {
   //QUESTION NO 6
 
   const findTrain = () => {
-    
-    let source = args[3].toUpperCase();
-    let destination = args[4].toUpperCase();
+    let flag = 0;
+    if (args[3] || args[4] === null) {
+      let source = args[3].toUpperCase();
+      let destination = args[4].toUpperCase();
 
-    console.log(" ");
-    console.log("Trains Between", source, destination);
-    console.log(" ");
+      console.log(" ");
+      console.log("Trains Between", source, destination);
+      console.log(" ");
 
-
-    for (let i = 0; i < trainGroup.length; i++) {
-      for (let j = 0; j < trainGroup[i].length; j++) {
-        for (const x of trainGroup[i][j]) {
-          if (
-            x.stationName != undefined &&
-            x.destinationStationName != undefined
-          ) {
+      for (let i = 0; i < trainGroup.length; i++) {
+        for (let j = 0; j < trainGroup[i].length; j++) {
+          for (const x of trainGroup[i][j]) {
             if (
-              x.stationName == source &&
-              x.destinationStationName.trim() == destination
+              x.stationName != undefined &&
+              x.destinationStationName != undefined
             ) {
-              trainInfo.push(x);
+              if (
+                x.stationName == source &&
+                x.destinationStationName.trim() == destination
+              ) {
+                trainInfo.push(x);
+              } else {
+                flag = flag + 1;
+              }
             }
           }
         }
       }
-    }
-    console.table(trainInfo);
-  };
 
+      if(trainInfo.length != 0){
+        flag = 0;
+      }
+      
+      if (flag > 0) {
+        console.log("No Trains Found for the Mentioned Route");
+        console.log(" ");
+      } else {
+        console.table(trainInfo);
+      }
+    } else {
+      console.log(" ");
+      console.log("USER ERROR - Enter Valid Station Names");
+      console.log(" ");
+    }
+  };
 
   //SWITCH CASE FOR CLI ARGUMENTS
 
