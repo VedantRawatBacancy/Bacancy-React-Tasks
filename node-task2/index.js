@@ -2,7 +2,7 @@ const fs = require("fs");
 
 const args = process.argv;
 
-const filePath = "./Train.csv"; // Update this with your CSV file's path
+const filePath = "./Train.csv"; // CSV Path Update
 const x = fs.readFile("./Train.csv", "utf8", (err, data) => {
   //DECLARATIONS
   const routes = data.split("\n").slice(1);
@@ -42,8 +42,9 @@ const x = fs.readFile("./Train.csv", "utf8", (err, data) => {
   let shortestTrainID;
   let getShortestTrainID;
   let trainGroup = [];
-  let localMax = -Infinity;
   let trainInfo = [];
+
+  //CREATING A MAP OF DATA & GROUPING THEM BY TRAIN NO
 
   trainData.forEach((item) => {
     if (!groupedData.has(item.trainNo)) {
@@ -51,12 +52,15 @@ const x = fs.readFile("./Train.csv", "utf8", (err, data) => {
     }
     groupedData.get(item.trainNo).push(item);
   });
+    
+  //PUSHING ELEMENTS FROM MAP INTO AN ARRAY
 
   for (const t of groupedData) {
     trainGroup.push(t);
   }
 
   //QUESTION NO 1
+
   const longestRouteFunction = () => {
     let max = -Infinity;
     let longestRoute = {};
@@ -70,6 +74,7 @@ const x = fs.readFile("./Train.csv", "utf8", (err, data) => {
   };
 
   //QUESTION NO 2
+
   const shortestRouteFunction = () => {
     for (let i = 0; i < trainGroup.length; i++) {
       for (let j = 0; j < trainGroup[i].length; j++) {
@@ -104,6 +109,7 @@ const x = fs.readFile("./Train.csv", "utf8", (err, data) => {
   trainInfo = [];
 
   //QUESTION NO 3
+
   const lessStationFunction = () => {
     for (let i = 0; i < trainGroup.length; i++) {
       for (let j = 0; j < trainGroup[i].length; j++) {
@@ -138,6 +144,7 @@ const x = fs.readFile("./Train.csv", "utf8", (err, data) => {
   trainInfo = [];
 
   //QUESTION NO 4
+
   const mostStationFunction = () => {
     for (let i = 0; i < trainGroup.length; i++) {
       for (let j = 0; j < trainGroup[i].length; j++) {
@@ -172,6 +179,7 @@ const x = fs.readFile("./Train.csv", "utf8", (err, data) => {
   trainInfo = [];
 
   //QUESTION NO 5
+
   const numberOfTrains = () => {
     for (let i = 0; i < trainGroup.length; i++) {
       for (let j = 0; j < trainGroup[i].length; j++) {
@@ -202,17 +210,28 @@ const x = fs.readFile("./Train.csv", "utf8", (err, data) => {
   //QUESTION NO 6
 
   const findTrain = () => {
-    // console.log(args[3], args[4]);
-    let source = args[3];
-    let destination = args[4];
+    
+    let source = args[3].toUpperCase();
+    let destination = args[4].toUpperCase();
 
-    // console.log(trainGroup[0][1][1])
+    console.log(" ");
+    console.log("Trains Between", source, destination);
+    console.log(" ");
 
-    for (let i=0; i<trainGroup.length; i++){
-      for(let j=0; j<trainGroup[i].length; j++){
-        for(const x of trainGroup[i][j]){
-          if(x.stationCode === source && x.destinationStationCode === destination){
-            trainInfo.push(x)
+
+    for (let i = 0; i < trainGroup.length; i++) {
+      for (let j = 0; j < trainGroup[i].length; j++) {
+        for (const x of trainGroup[i][j]) {
+          if (
+            x.stationName != undefined &&
+            x.destinationStationName != undefined
+          ) {
+            if (
+              x.stationName == source &&
+              x.destinationStationName.trim() == destination
+            ) {
+              trainInfo.push(x);
+            }
           }
         }
       }
@@ -220,36 +239,55 @@ const x = fs.readFile("./Train.csv", "utf8", (err, data) => {
     console.table(trainInfo);
   };
 
-  // console.log(args[2]);
+
+  //SWITCH CASE FOR CLI ARGUMENTS
 
   switch (args[2]) {
     case "QUESTION_NO1": {
-      console.log("Answer To Question 1");
+      console.log(" ");
+      console.log("------------------");
+      console.log("Answer To Question 1 : Train with the Longest Route");
+      console.log("------------------");
       longestRouteFunction();
       break;
     }
     case "QUESTION_NO2": {
-      console.log("Answer To Question 2");
+      console.log(" ");
+      console.log("------------------");
+      console.log("Answer To Question 2 : Train with the Shortest Route");
+      console.log("------------------");
       shortestRouteFunction();
       break;
     }
     case "QUESTION_NO3": {
-      console.log("Answer To Question 3");
+      console.log(" ");
+      console.log("------------------");
+      console.log("Answer To Question 3 : Train with Least Number of Stops");
+      console.log("------------------");
       lessStationFunction();
       break;
     }
     case "QUESTION_NO4": {
-      console.log("Answer To Question 4");
+      console.log(" ");
+      console.log("------------------");
+      console.log("Answer To Question 4 : Train with the Most Number of Stops");
+      console.log("------------------");
       mostStationFunction();
       break;
     }
     case "QUESTION_NO5": {
-      console.log("Answer To Question 5");
+      console.log(" ");
+      console.log("------------------");
+      console.log("Answer To Question 5 : Number of Trains & Names");
+      console.log("------------------");
       numberOfTrains();
       break;
     }
     case "QUESTION_NO6": {
-      console.log("Answer To Question 6");
+      console.log(" ");
+      console.log("------------------");
+      console.log("Answer To Question 6 : Custom Train Search");
+      console.log("------------------");
       findTrain();
       break;
     }
