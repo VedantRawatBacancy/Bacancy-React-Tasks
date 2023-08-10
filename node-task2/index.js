@@ -239,19 +239,19 @@ const x = fs.readFile("./Train.csv", "utf8", (err, data) => {
         }
       }
 
-      if(trainInfo.length != 0){
+      if (trainInfo.length != 0) {
         flag = 0;
       }
-      
+
       if (flag > 0) {
-        console.log("No Trains Found for the Mentioned Route");
+        console.error("No Trains Found for the Mentioned Route");
         console.log(" ");
       } else {
         console.table(trainInfo);
       }
     } else {
       console.log(" ");
-      console.log("USER ERROR - Enter Valid Station Names");
+      console.error("USER ERROR - Enter Valid Station Names");
       console.log(" ");
     }
   };
@@ -308,6 +308,10 @@ const x = fs.readFile("./Train.csv", "utf8", (err, data) => {
       break;
     }
     default:
-      console.log("Not a Valid Argument");
+      console.log(" ");
+      console.log("------------------");
+      console.error("Not a Valid Argument");
+      console.log("------------------");
+      console.log(" ");
   }
 });

@@ -39,3 +39,4 @@ Q6 : Find Train
 ```
 node index.js QUESTION_NO6 "STATION_NAME" "DESTINATION_NAME"
 ```
+
