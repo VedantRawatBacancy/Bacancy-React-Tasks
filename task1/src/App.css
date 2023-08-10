@@ -80,11 +80,11 @@ button{
   width: 13em;
   overflow: auto;
   word-break: break-all;
-  border-radius: 2em;
+  border-radius: 1em;
   /* background-color: #000; */
 }
 
 .over.sec1{
-  height: 8em;
+  height: 9em;
 }
 

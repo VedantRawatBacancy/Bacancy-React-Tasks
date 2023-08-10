@@ -7,7 +7,7 @@ import './Task.css'
 export default function Task() {
   const [items, setItems] = useState([]);
 
-  console.log(kalkuleight(items));
+  // console.log(kalkuleight(items));
 
   const clickHandler = (value) => {
     if(value === ""){

@@ -6,16 +6,16 @@ function Effect3() {
 
   useEffect(() => {
     console.log(
-      "%cEffect 2 Mounted",
+      "%cEffect 3 Mounted",
       "color:white; padding: 1em; background-color: #250403; border-radius: 0.5em;"
     );
     console.log(
-      "%cEffect 2 Rendered",
+      "%cEffect 3 Rendered",
       "color:white; padding: 1em; background-color: #250403; border-radius: 0.5em;"
     );
     return () => {
       console.log(
-        "%cEffect 2 Clean-Up (Unmount)",
+        "%cEffect 3 Clean-Up (Unmount)",
         "color:white; padding: 1em; background-color: #250403; border-radius: 0.5em;"
       );
     };
