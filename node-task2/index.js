@@ -4,7 +4,9 @@ const args = process.argv;
 
 const filePath = "./Train.csv"; // CSV Path Update
 const x = fs.readFile("./Train.csv", "utf8", (err, data) => {
+
   //DECLARATIONS
+  
   const routes = data.split("\n").slice(1);
   const trainData = routes.map((route) => {
     const [
