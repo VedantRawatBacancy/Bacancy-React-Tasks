@@ -76,14 +76,15 @@ button{
 }
 
 .over{
-  height: 14em;
+  height: 5em;
   width: 13em;
   overflow: auto;
   word-break: break-all;
+  border-radius: 2em;
   /* background-color: #000; */
 }
 
 .over.sec1{
-  height: 18em;
-
+  height: 8em;
 }
+
