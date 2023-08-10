@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import TaskInput from "./TaskInput";
 import TaskView from "./TaskView";
 import { kalkuleight } from "kalkuleight";
+import './Task.css'
 
 export default function Task() {
   const [items, setItems] = useState([]);

@@ -74,3 +74,16 @@ button{
 .read-the-docs {
   color: #888;
 }
+
+.over{
+  height: 14em;
+  width: 13em;
+  overflow: auto;
+  word-break: break-all;
+  /* background-color: #000; */
+}
+
+.over.sec1{
+  height: 18em;
+
+}

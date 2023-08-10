@@ -57,52 +57,69 @@ function App() {
 
   return (
     <>
-    <section>
-      <table>
-        <tr>
-          <td>
-            <div className="section" id="task1">
-              <h2>TASK 1</h2>
-              <input type="text" value={value} onChange={changeHandler} />
-              <h3>OUTPUT</h3>
-              <p>{value}</p>
-            </div>
-          </td>
-          <td>
-            <div className="section" id="task2">
-              <h2>TASK 2</h2>
-              <input type="text" value={data} onChange={secondChangeHandler} />
-              <br />
-              <h3>OUTPUT</h3>
-              <button onClick={clickHandler}>SUBMIT</button>
-              <p>{reData}</p>
-            </div>
-          </td>
-          <td>
-            <div className="section" id="task3">
-              <h2>TASK 3</h2>
-              <input type="text" value={values} onChange={thirdChangeHandler} />
-              <br />
-              <h3>OUTPUT</h3>
-              <p>{buttonValues}</p>
-              <br />
-              <button onClick={secondClickHandler} disabled={values === ""}>
-                SUBMIT
-              </button>
-              <button onClick={resetHandler} className="danger">X</button>
-            </div>
-          </td>
-        </tr>
-      </table>
+      <section>
+        <table>
+          <tr>
+            <td>
+              <div className="section" id="task1">
+                <h2>TASK 1</h2>
+                <input type="text" value={value} onChange={changeHandler} />
+                <h3>OUTPUT</h3>
+                <div className="over sec1">
+                  <p>{value}</p>
+                </div>
+              </div>
+            </td>
+            <td>
+              <div className="section" id="task2">
+                <h2>TASK 2</h2>
+                <input
+                  type="text"
+                  value={data}
+                  onChange={secondChangeHandler}
+                />
+                <br />
+                <h3>OUTPUT</h3>
+                <button onClick={clickHandler}>SUBMIT</button>
+                <div className="over">
+                  <p>{reData}</p>
+                </div>
+              </div>
+            </td>
+            <td>
+              <div className="section" id="task3">
+                <h2>TASK 3</h2>
+                <input
+                  type="text"
+                  value={values}
+                  onChange={thirdChangeHandler}
+                />
+                <br />
+                <h3>OUTPUT</h3>
+                <button onClick={secondClickHandler} disabled={values === ""}>
+                  SUBMIT
+                </button>
+                <button onClick={resetHandler} className="danger">
+                  X
+                </button>
+                <div className="over">
+                  <p>{buttonValues}</p>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
       </section>
       <section>
-        <button onClick={resetAll} className="danger">RESET ALL</button>
+        <button onClick={resetAll} className="danger">
+          RESET ALL
+        </button>
       </section>
       <section>
-      <div className="section">
-        <h2>TASK 4</h2>
-        <Task></Task>
-      </div>
+        <div className="section">
+          <h2>TASK 4</h2>
+          <Task></Task>
+        </div>
       </section>
     </>
   );
