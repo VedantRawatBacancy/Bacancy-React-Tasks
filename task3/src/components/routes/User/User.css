@@ -1,0 +1,211 @@
+.main-container{
+    padding: 2em;
+    padding-top: 1em;
+    flex-direction: row;
+    place-items: center;
+    justify-content: center;
+}
+
+.child-container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    word-break:keep-all;
+    height: 65vh;
+    width: 96vw;
+    border-radius: 1em;
+    justify-content: center;
+    place-items: center;
+    overflow: auto;
+
+}
+
+.navigate{
+    color: white;
+}
+
+.add-user{
+    color: #121212;
+    padding: 2em;
+    font-weight: 400;
+    font-size: 12pt;
+    text-transform: uppercase;
+    background-color: rgba(255, 255, 255, 0.75);
+    outline: none;
+    border: 2px solid transparent !important;
+    border-radius: 1.5em;
+    transition: 0.25s ease;
+}
+
+.add-user:hover,
+.add-user:focus{
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(255, 255, 255, 0);
+    border: 2px solid rgba(255, 255, 255, 0.75) !important;
+    transition: 0.5s ease;
+
+}
+
+tr{
+    padding: 0.5em;
+}
+
+td.field{
+    width: 8em;
+    padding: 0.5em;
+    margin: 0.5em;
+    font-weight: 600;
+    text-align: center;
+}
+
+.form-input{
+    padding: 0.9em;
+    background-color: #fff;
+    border: 1px solid transparent;
+    filter: drop-shadow(0 0 0.1em #323031);
+    color: #323031;
+    border-radius: 0.5em;
+    transition: 0.25s ease;
+    margin: 1em;
+}
+
+.form-input:focus{
+    padding: 0.9em;
+    background-color: #fff;
+    outline: none;
+    border: none;
+    filter: drop-shadow(0 0 0.2em #323031);
+    border: 1px solid #000;
+    transition: 0.2s ease;
+}
+
+.card{
+    display: flex;
+    justify-content: center;
+    place-items: center;
+    padding: 1.5em;
+    flex-direction: column;
+    margin: 1em;
+    height: 25em;
+    width: 15em;
+    word-wrap: break-word;
+    word-break: break-all;
+    background-color: rgba(0, 0, 0, 0.75);
+    box-shadow: 0 0 0.5em #000;
+    border-radius: 1em;
+}
+
+.user-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.delete{
+    color: #fff;
+    padding: 0.5em;
+    margin: 0.5em;
+    font-weight: 400;
+    font-size: 13pt;
+    text-transform: uppercase;
+    background-color: rgba(255, 0, 0, 0.75);
+    outline: none;
+    border: 2px solid transparent !important;
+    border-radius: 0.5em;
+    transition: 0.25s ease;
+}
+
+.delete:hover,
+.delete:focus{
+    color: rgba(255, 0, 0, 1);
+    background-color: rgba(255, 0, 0, 0);
+    border: 2px solid rgba(255, 0, 0, 0.75) !important;
+    transition: 0.5s ease;
+
+}
+
+.delete.close{
+    padding: 1em;
+    position: relative;
+}
+
+.edit-user{
+    color: #fff;
+    padding: 0.5em;
+    margin: 0.5em;
+    font-weight: 400;
+    font-size: 13pt;
+    text-transform: uppercase;
+    background-color: rgba(50, 255, 10, 0.75);
+    outline: none;
+    border: 2px solid transparent !important;
+    border-radius: 0.5em;
+    transition: 0.25s ease;
+}
+
+.edit-user:hover,
+.edit-user:focus{
+    color: rgba(50, 255, 10, 1);
+    background-color: rgba(50, 255, 10, 0);
+    border: 2px solid rgba(50, 255, 10, 0.75) !important;
+    transition: 0.5s ease;
+
+}
+.view-user{
+    color: #fff;
+    padding: 0.15em 0.5em;
+    width: 70%;
+    font-weight: 400;
+    font-size: 13pt;
+    text-transform: uppercase;
+    background-color: rgba(20, 185, 195, 0.75);
+    outline: none;
+    border: 2px solid transparent !important;
+    border-radius: 0.5em;
+    transition: 0.25s ease;
+}
+
+.view-user:hover,
+.view-user:focus{
+    color: rgba(20, 185, 195, 1);
+    background-color: rgba(50, 255, 10, 0);
+    border: 2px solid rgba(20, 185, 195, 0.75) !important;
+    transition: 0.5s ease;
+
+}
+
+.display-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    place-items: center;
+    min-height: 100%;
+    min-width: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+.child-container.display{
+    box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.75);
+    filter: drop-shadow(0 0 0.25em rgba(0, 0, 0, 0.5));
+}
+
+
+td.head{
+    background-color: rgba(255, 255, 255, 0.75);
+    border-radius: 0.5em 0.5em 0 0;
+    color: #121212;
+}
+
+td.city{
+    background-color: rgba(255, 255, 255, 0.0);
+    border: 2px solid white;
+    border-radius: 0 0 0.5em 0.5em;
+    outline: none;
+    color: #fff;
+}
+
+td.email{
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 0.5em;
+    font-weight: 600;
+    color: #fff;
+}

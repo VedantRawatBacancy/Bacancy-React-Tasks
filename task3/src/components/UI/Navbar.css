@@ -1,0 +1,71 @@
+.parent-container{
+  padding: 1.5em;
+}
+
+.container {
+  padding: 3em;
+  background-color: rgba(0, 0, 0, 0.75);
+  border-radius: 0.5em;
+  box-shadow: 0 0 0.75em rgba(0, 0, 0, 1);
+  filter: drop-shadow(0 0 1.5em rgba(0, 0, 0, 0.5));
+}
+.wrapper {
+  height: 2em;
+  width: 100%;
+  display: flex;
+  place-items: center;
+  justify-content: space-between;
+  color: black;
+  border-radius: 0.25em;
+  font-size: 1.5em;
+}
+
+.nav{
+    display: flex;
+    list-style: none;
+    text-align: center;
+    padding: 0 0 0 0 !important;
+}
+
+.nav>a{
+    padding: 1em;
+    margin: 0.5em;
+    color: rgba(255, 255, 255, 0.75);
+    font-weight: 400;
+    border: 2px solid transparent;
+    border-radius: 1em;
+    transition: 0.5s ease-in-out;
+}
+.nav>a:hover{
+    color: rgba(255, 255, 255, 1);
+    border-radius: 1em;
+    border: 2px solid white;
+    transition: 0.5s ease-in-out;
+}
+
+
+.brand {
+  padding: 2em;
+  display: flex;
+  place-items: center;
+  background-color: 5px;
+}
+.brand > img {
+  filter: drop-shadow(0 0 0.15em rgba(0, 0, 0, 0.9));
+}
+
+.brand > h3{
+    color: #fff;
+    margin-left: 1em;
+    font-weight: 100;
+}
+
+@media screen and (max-width: 900px) {
+  .brand>h3{
+    font-size: 18pt;
+  }
+
+  .wrapper{
+    flex-wrap: nowrap;
+  }
+}

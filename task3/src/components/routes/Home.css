@@ -1,0 +1,48 @@
+.main-container{
+    padding: 2em;
+    padding-top: 1em;
+}
+
+.child-container{
+    display: flex;
+    flex-direction: column;
+    min-height: 65vh;
+    border-radius: 1em;
+    justify-content: center;
+    place-items: center;
+}
+
+.main-container:hover > .child-container>h2{
+    filter: drop-shadow(0 0 0.5em rgba(50, 48, 49,0.5));
+    transition: 0.5s ease;
+}
+
+.main-container:hover .welcome{
+    filter: drop-shadow(0 0 0.1em rgba(50, 48, 49, 0.2));
+    transition: 0.5s ease;
+}
+
+.welcome{
+    padding: 1em;
+    border-radius: 0.5em;
+    background-color: rgba(0, 0, 0, 0.75);
+    filter: drop-shadow(0 0 0.1em #000);
+    box-shadow: 0 0 0.1em rgba(0, 0, 0, 0.5);
+    transition: 0.5s ease;
+    transition-delay: 1s;
+}
+.welcome-edit{
+    padding: 0.75em;
+    border-radius: 0.5em;
+    background-color: rgba(0, 100, 50, 0.75);
+    filter: drop-shadow(0 0 0.1em #000);
+    box-shadow: 0 0 0.1em rgba(0, 0, 0, 0.5);
+    transition: 0.5s ease;
+    transition-delay: 1s;
+}
+
+.child-container>h2{
+    filter: drop-shadow(0 0 0.1em #000);
+    transition: 0.5s ease;
+    transition-delay: 1s;
+}

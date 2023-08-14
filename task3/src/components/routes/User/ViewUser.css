@@ -1,0 +1,40 @@
+.display-head{
+    display: flex;
+    justify-content: center;
+    place-items: center;
+    width: 90%;
+    height: 30%;
+    text-transform: capitalize;
+    border-radius: 0.5em 0.5em 0 0;
+    background-color: rgba(255, 255, 255, 0.75);
+    color: #121212;
+    filter: drop-shadow(0 0 0.25em #000);
+}
+.display-city{
+    display: flex;
+    justify-content: center;
+    place-items: center;
+    width: 90%;
+    height: 10%;
+    font-size: 20pt;
+    border-radius: 0 0 0.75em 0.75em;
+    background-color: rgba(255, 255, 255, 0.75);
+    text-transform: uppercase;
+    color: #121212;
+    filter: drop-shadow(0 0 0.25em #000);
+
+}
+
+.display-email{
+    margin-top: 0;
+    display: flex;
+    justify-content: center;
+    place-items: center;
+    width: 90%;
+    height: 10%;
+    text-transform: uppercase;
+    border-radius: 0.5em;
+    background-color: rgba(0, 200, 175, 0);
+    color: #fff;
+    filter: drop-shadow(0 0 0.25em #000);
+}
