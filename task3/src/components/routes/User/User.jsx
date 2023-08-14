@@ -1,13 +1,11 @@
 import React, { useEffect } from "react";
-import "./User.css";
-import { BrowserRouter, NavLink, Routes, Route } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import DisplayUser from "./DisplayUser";
+import "./User.css";
 
 import { useContextData } from "../../../UserContext";
 
-
 function User() {
-
   const conFetch = useContextData();
 
   return (
@@ -17,8 +15,8 @@ function User() {
           <button className="add-user">Add User</button>
         </NavLink>
         <div className="child-container">
-        <br></br>
-        <DisplayUser />
+          <br></br>
+          <DisplayUser />
         </div>
       </div>
     </>

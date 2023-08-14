@@ -1,211 +1,301 @@
-.main-container{
-    padding: 2em;
-    padding-top: 1em;
-    flex-direction: row;
-    place-items: center;
-    justify-content: center;
+.main-container {
+  padding: 2em;
+  padding-top: 1em;
+  flex-direction: column;
+  place-items: center;
+  justify-content: center;
 }
 
-.child-container{
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    word-break:keep-all;
-    height: 65vh;
-    width: 96vw;
-    border-radius: 1em;
-    justify-content: center;
-    place-items: center;
-    overflow: auto;
-
+.child-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  word-break: keep-all;
+  height: 60vh;
+  width: 96vw;
+  border-radius: 1em;
+  justify-content: space-evenly;
+  place-items: center;
+  overflow: auto;
 }
 
-.navigate{
-    color: white;
+.child-container.main {
+  flex-direction: row !important;
 }
 
-.add-user{
-    color: #121212;
-    padding: 2em;
-    font-weight: 400;
-    font-size: 12pt;
-    text-transform: uppercase;
-    background-color: rgba(255, 255, 255, 0.75);
-    outline: none;
-    border: 2px solid transparent !important;
-    border-radius: 1.5em;
-    transition: 0.25s ease;
+.navigate {
+  color: white;
+}
+
+.add-user {
+  color: rgba(255, 255, 255, 0.85);
+  padding: 1em;
+  font-weight: 800;
+  font-size: 20pt;
+  width: 100%;
+  text-transform: uppercase;
+  background-color: rgba(77, 148, 20, 1);
+  outline: none;
+  border: 2px solid transparent !important;
+  border-radius: 1em;
+  transition: 0.25s ease;
 }
 
 .add-user:hover,
-.add-user:focus{
-    color: rgba(255, 255, 255, 1);
-    background-color: rgba(255, 255, 255, 0);
-    border: 2px solid rgba(255, 255, 255, 0.75) !important;
-    transition: 0.5s ease;
-
+.add-user:focus {
+  color: rgba(255, 255, 255, 1);
+  box-shadow: inset 0 0 0.5em rgba(0, 0, 0, 0.5);
+  background-color: rgba(77, 148, 20, 0.75);
+  border: 2px solid rgba(0, 255, 50, 0.75) !important;
+  transition: 0.5s ease;
 }
 
-tr{
-    padding: 0.5em;
+tr {
+  padding: 0.5em;
 }
 
-td.field{
-    width: 8em;
-    padding: 0.5em;
-    margin: 0.5em;
-    font-weight: 600;
-    text-align: center;
+td.field {
+  width: 8em;
+  padding: 0.5em;
+  margin: 0.5em;
+  font-weight: 600;
+  text-align: center;
 }
 
-.form-input{
-    padding: 0.9em;
-    background-color: #fff;
-    border: 1px solid transparent;
-    filter: drop-shadow(0 0 0.1em #323031);
-    color: #323031;
-    border-radius: 0.5em;
-    transition: 0.25s ease;
-    margin: 1em;
+.form-input {
+  padding: 0.9em;
+  background-color: #fff;
+  border: 1px solid transparent;
+  filter: drop-shadow(0 0 0.1em #323031);
+  color: #323031;
+  border-radius: 0.5em;
+  transition: 0.25s ease;
+  margin: 1em;
 }
 
-.form-input:focus{
-    padding: 0.9em;
-    background-color: #fff;
-    outline: none;
-    border: none;
-    filter: drop-shadow(0 0 0.2em #323031);
-    border: 1px solid #000;
-    transition: 0.2s ease;
+.form-input:focus {
+  padding: 0.9em;
+  background-color: #fff;
+  outline: none;
+  border: none;
+  filter: drop-shadow(0 0 0.2em #323031);
+  border: 1px solid #000;
+  transition: 0.2s ease;
 }
 
-.card{
-    display: flex;
-    justify-content: center;
-    place-items: center;
-    padding: 1.5em;
-    flex-direction: column;
-    margin: 1em;
-    height: 25em;
-    width: 15em;
-    word-wrap: break-word;
-    word-break: break-all;
-    background-color: rgba(0, 0, 0, 0.75);
-    box-shadow: 0 0 0.5em #000;
-    border-radius: 1em;
+.card {
+  display: flex;
+  justify-content: center;
+  place-items: center;
+  padding: 1.5em;
+  flex-direction: column;
+  margin: 1em;
+  height: 25em;
+  width: 15em;
+  word-wrap: break-word;
+  word-break: break-all;
+  background-color: rgba(0, 0, 0, 0.75);
+  box-shadow: 0 0 0.5em #000;
+  border-radius: 1em;
 }
 
-.user-container{
-    display: flex;
-    flex-direction: row;
+.user-container {
+  display: flex;
+  flex-direction: row;
 }
 
-.delete{
-    color: #fff;
-    padding: 0.5em;
-    margin: 0.5em;
-    font-weight: 400;
-    font-size: 13pt;
-    text-transform: uppercase;
-    background-color: rgba(255, 0, 0, 0.75);
-    outline: none;
-    border: 2px solid transparent !important;
-    border-radius: 0.5em;
-    transition: 0.25s ease;
+.delete {
+  color: #fff;
+  padding: 0.5em;
+  font-weight: 400;
+  font-size: 20pt;
+  text-transform: uppercase;
+  background-color: rgba(255, 0, 0, 0.75);
+  outline: none;
+  border: 2px solid transparent !important;
+  border-radius: 0.5em;
+  transition: 0.25s ease;
 }
 
 .delete:hover,
-.delete:focus{
-    color: rgba(255, 0, 0, 1);
-    background-color: rgba(255, 0, 0, 0);
-    border: 2px solid rgba(255, 0, 0, 0.75) !important;
-    transition: 0.5s ease;
-
+.delete:focus {
+  color: rgba(255, 0, 0, 1);
+  background-color: rgba(255, 0, 0, 0);
+  border: 2px solid rgba(255, 0, 0, 0.75) !important;
+  transition: 0.5s ease;
+}
+.delete-toast {
+  color: #fff;
+  padding: 0.5em;
+  font-weight: 400;
+  font-size: 13pt;
+  text-transform: uppercase;
+  background-color: rgba(255, 0, 0, 0.75);
+  outline: none;
+  border: 2px solid transparent !important;
+  border-radius: 0.5em;
+  transition: 0.25s ease;
 }
 
-.delete.close{
-    padding: 1em;
-    position: relative;
+.delete-toast:hover,
+.delete-toast:focus {
+  color: rgba(255, 0, 0, 1);
+  background-color: rgba(255, 0, 0, 0);
+  border: 2px solid rgba(255, 0, 0, 0.75) !important;
+  transition: 0.5s ease;
 }
 
-.edit-user{
-    color: #fff;
-    padding: 0.5em;
-    margin: 0.5em;
-    font-weight: 400;
-    font-size: 13pt;
-    text-transform: uppercase;
-    background-color: rgba(50, 255, 10, 0.75);
-    outline: none;
-    border: 2px solid transparent !important;
-    border-radius: 0.5em;
-    transition: 0.25s ease;
+.delete.close {
+  padding: 1em;
+  border-radius: 10em;
+  position: relative;
+}
+
+.edit-user {
+  color: #fff;
+  padding: 0.5em;
+  margin: 0.5em;
+  font-weight: 400;
+  font-size: 20pt;
+  text-transform: uppercase;
+  background-color: rgba(50, 255, 10, 0.75);
+  outline: none;
+  border: 2px solid transparent !important;
+  border-radius: 0.5em;
+  transition: 0.25s ease;
 }
 
 .edit-user:hover,
-.edit-user:focus{
-    color: rgba(50, 255, 10, 1);
-    background-color: rgba(50, 255, 10, 0);
-    border: 2px solid rgba(50, 255, 10, 0.75) !important;
-    transition: 0.5s ease;
-
+.edit-user:focus {
+  color: rgba(50, 255, 10, 1);
+  background-color: rgba(50, 255, 10, 0);
+  border: 2px solid rgba(50, 255, 10, 0.75) !important;
+  transition: 0.5s ease;
 }
-.view-user{
-    color: #fff;
-    padding: 0.15em 0.5em;
-    width: 70%;
-    font-weight: 400;
-    font-size: 13pt;
-    text-transform: uppercase;
-    background-color: rgba(20, 185, 195, 0.75);
-    outline: none;
-    border: 2px solid transparent !important;
-    border-radius: 0.5em;
-    transition: 0.25s ease;
+.edit-user-toast {
+  color: #fff;
+  padding: 0.5em;
+  margin: 0.5em;
+  font-weight: 400;
+  font-size: 13pt;
+  text-transform: uppercase;
+  background-color: rgba(28, 158, 2, 0.75);
+  outline: none;
+  border: 2px solid transparent !important;
+  border-radius: 0.5em;
+  transition: 0.25s ease;
+}
+
+.edit-user-toast:hover,
+.edit-user-toast:focus {
+  color: rgba(28, 158, 2, 0.75);
+  background-color: rgba(50, 255, 10, 0);
+  border: 2px solid rgba(28, 158, 2, 0.75) !important;
+  transition: 0.5s ease;
+}
+.view-user {
+  color: #fff;
+  text-align: center;
+  vertical-align: middle;
+  padding: 0.2em 0.5em;
+  font-weight: 400;
+  font-size: 20pt;
+  text-transform: uppercase;
+  background-color: rgba(0, 255, 195, 0.75);
+  outline: none;
+  border: 2px solid transparent !important;
+  border-radius: 0.5em;
+  transition: 0.25s ease;
 }
 
 .view-user:hover,
-.view-user:focus{
-    color: rgba(20, 185, 195, 1);
-    background-color: rgba(50, 255, 10, 0);
-    border: 2px solid rgba(20, 185, 195, 0.75) !important;
-    transition: 0.5s ease;
-
+.view-user:focus {
+  color: rgba(0, 255, 195, 1);
+  background-color: rgba(50, 255, 10, 0);
+  border: 2px solid rgba(0, 255, 195, 0.75) !important;
+  transition: 0.5s ease;
 }
 
-.display-card{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    place-items: center;
-    min-height: 100%;
-    min-width: 100%;
-    background-color: rgba(0, 0, 0, 0.75);
+.display-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  place-items: center;
+  min-height: 100%;
+  min-width: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
 }
 
-.child-container.display{
-    box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.75);
-    filter: drop-shadow(0 0 0.25em rgba(0, 0, 0, 0.5));
+.child-container.display {
+  box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.75);
+  filter: drop-shadow(0 0 0.25em rgba(0, 0, 0, 0.5));
 }
 
-
-td.head{
-    background-color: rgba(255, 255, 255, 0.75);
-    border-radius: 0.5em 0.5em 0 0;
-    color: #121212;
+td.head {
+  background-color: rgba(255, 255, 255, 0.75);
+  border-radius: 0.5em 0.5em 0 0;
+  color: #121212;
 }
 
-td.city{
-    background-color: rgba(255, 255, 255, 0.0);
-    border: 2px solid white;
-    border-radius: 0 0 0.5em 0.5em;
-    outline: none;
-    color: #fff;
+td.city {
+  background-color: rgba(255, 255, 255, 0);
+  border: 2px solid white;
+  border-radius: 0 0 0.5em 0.5em;
+  outline: none;
+  color: #fff;
 }
 
-td.email{
-    background-color: rgba(255, 255, 255, 0);
-    border-radius: 0.5em;
-    font-weight: 600;
-    color: #fff;
+td.email {
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 0.5em;
+  font-weight: 600;
+  color: #fff;
+}
+
+.bg-black {
+  background-color: rgba(0, 0, 0, 0.85);
+  box-shadow: 0 0 0.5em rgba(0, 0, 0, 1);
+  padding: 5em;
+  border-radius: 2em;
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  place-items: center;
+  min-width: 100%;
+  /* background-color: #fff; */
+}
+
+.buttonContainer > .navigate > .view-user {
+  min-width: 100%;
+  align-content: center;
+  place-items: center;
+  /* background-color: #000 !important; */
+}
+
+.eye {
+  display: flex;
+  padding: 0.1em;
+}
+.bin {
+  display: flex;
+  padding: 0.1em;
+}
+.pencil {
+  display: flex;
+  padding: 0.1em;
+}
+.check {
+  display: flex;
+  padding: 0.1em;
+}
+.cross {
+  display: flex;
+  padding: 0.1em;
+}
+
+.bc-button {
+  min-height: 3em;
 }

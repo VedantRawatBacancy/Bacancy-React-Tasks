@@ -1,4 +1,4 @@
-.parent-container{
+.parent-container {
   padding: 1.5em;
 }
 
@@ -6,9 +6,10 @@
   padding: 3em;
   background-color: rgba(0, 0, 0, 0.75);
   border-radius: 0.5em;
-  box-shadow: 0 0 0.75em rgba(0, 0, 0, 1);
-  filter: drop-shadow(0 0 1.5em rgba(0, 0, 0, 0.5));
+  box-shadow: 0 0 0.25em rgba(0, 0, 0, 1);
+  filter: drop-shadow(0 0 0.5em rgba(0, 0, 0, 0.25));
 }
+
 .wrapper {
   height: 2em;
   width: 100%;
@@ -20,29 +21,28 @@
   font-size: 1.5em;
 }
 
-.nav{
-    display: flex;
-    list-style: none;
-    text-align: center;
-    padding: 0 0 0 0 !important;
+.nav {
+  display: flex;
+  list-style: none;
+  text-align: center;
+  padding: 0 0 0 0 !important;
 }
 
-.nav>a{
-    padding: 1em;
-    margin: 0.5em;
-    color: rgba(255, 255, 255, 0.75);
-    font-weight: 400;
-    border: 2px solid transparent;
-    border-radius: 1em;
-    transition: 0.5s ease-in-out;
+.nav > a {
+  padding: 1em;
+  margin: 0.5em;
+  color: rgba(255, 255, 255, 0.75);
+  font-weight: 400;
+  border: 2px solid transparent;
+  border-radius: 1em;
+  transition: 0.5s ease-in-out;
 }
-.nav>a:hover{
-    color: rgba(255, 255, 255, 1);
-    border-radius: 1em;
-    border: 2px solid white;
-    transition: 0.5s ease-in-out;
+.nav > a:hover {
+  color: rgba(255, 255, 255, 1);
+  border-radius: 1em;
+  border: 2px solid white;
+  transition: 0.5s ease-in-out;
 }
-
 
 .brand {
   padding: 2em;
@@ -54,18 +54,18 @@
   filter: drop-shadow(0 0 0.15em rgba(0, 0, 0, 0.9));
 }
 
-.brand > h3{
-    color: #fff;
-    margin-left: 1em;
-    font-weight: 100;
+.brand > h3 {
+  color: #fff;
+  margin-left: 1em;
+  font-weight: 100;
 }
 
 @media screen and (max-width: 900px) {
-  .brand>h3{
+  .brand > h3 {
     font-size: 18pt;
   }
 
-  .wrapper{
+  .wrapper {
     flex-wrap: nowrap;
   }
 }

@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
 import { useContextData } from "../../../UserContext";
 import { Formik, Field, Form } from "formik";
-import { useParams } from "react-router-dom";
-import { Toaster, toast } from "react-hot-toast";
-
+import { NavLink, useParams } from "react-router-dom";
+import { toast } from "react-hot-toast";
+import { AiOutlineEdit, AiOutlineRollback } from "react-icons/ai";
 import "./User.css";
 
 function EditUser(props) {
@@ -13,10 +12,8 @@ function EditUser(props) {
   return (
     <>
       <div className="main-container">
-        <Toaster position="bottom-left" reverseOrder={false}></Toaster>
         <div className="child-container">
           <h1 className="welcome-edit">Edit User</h1>
-          <br />
           <Formik
             initialValues={{
               firstName: conFetch.users[id].firstName,
@@ -27,6 +24,7 @@ function EditUser(props) {
             onSubmit={async (values) => {
               await new Promise((r) => setTimeout(r, 500));
               toast.success(`User Edited - ${values.firstName}`, {
+                duration: 1500,
                 style: {
                   border: "1px solid rgba(20, 130, 50, 0.75)",
                   backgroundColor: "#efefef",
@@ -43,63 +41,66 @@ function EditUser(props) {
               console.log(values);
             }}
           >
-            <Form>
-              <tr>
-                <td className="field">
-                  <label htmlFor="firstName">First Name</label>
-                </td>
-                <td>
-                  <Field
-                    id="firstName"
-                    name="firstName"
-                    placeholder={conFetch.users[id].firstName}
-                    className="form-input"
-                  />
-                </td>
-
-                <td className="field">
-                  <label htmlFor="lastName">Last Name</label>
-                </td>
-                <td>
-                  <Field
-                    id="lastName"
-                    name="lastName"
-                    placeholder={conFetch.users[id].lastName}
-                    className="form-input"
-                  />
-                </td>
-              </tr>
+            <Form className="bg-black">
+              <td className="field">
+                <label htmlFor="firstName">First Name</label>
+              </td>
+              <td>
+                <Field
+                  id="firstName"
+                  name="firstName"
+                  placeholder={conFetch.users[id].firstName}
+                  className="form-input"
+                />
+              </td>
+              <br />
+              <td className="field">
+                <label htmlFor="lastName">Last Name</label>
+              </td>
+              <td>
+                <Field
+                  id="lastName"
+                  name="lastName"
+                  placeholder={conFetch.users[id].lastName}
+                  className="form-input"
+                />
+              </td>
 
               <br />
 
-              <tr>
-                <td className="field">
-                  <label htmlFor="email">Email</label>
-                </td>
-                <td>
-                  <Field
-                    id="email"
-                    name="email"
-                    placeholder={conFetch.users[id].email}
-                    type="email"
-                    className="form-input"
-                  />
-                </td>
-
-                <td className="field">
-                  <label htmlFor="city">City</label>
-                </td>
-                <td>
-                  <Field
-                    id="city"
-                    name="city"
-                    placeholder={conFetch.users[id].city}
-                    className="form-input"
-                  />
-                </td>
-              </tr>
+              <td className="field">
+                <label htmlFor="email">Email</label>
+              </td>
+              <td>
+                <Field
+                  id="email"
+                  name="email"
+                  placeholder={conFetch.users[id].email}
+                  type="email"
+                  className="form-input"
+                />
+              </td>
               <br />
-              <button type="submit">EDIT USER</button>
+              <td className="field">
+                <label htmlFor="city">City</label>
+              </td>
+              <td>
+                <Field
+                  id="city"
+                  name="city"
+                  placeholder={conFetch.users[id].city}
+                  className="form-input"
+                />
+              </td>
+              <br />
+              <button type="submit" className="bc-button edit-user">
+                <AiOutlineEdit className="check" />
+              </button>
+              <NavLink to={`../user`} className={"navigate"}>
+                <button className="bc-button delete">
+                  <AiOutlineRollback className="check" />
+                </button>
+              </NavLink>
             </Form>
           </Formik>
         </div>
