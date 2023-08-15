@@ -45,9 +45,12 @@ const UserContext = ({ children }) => {
       {
         duration: Infinity,
         style: {
-          border: "1px solid #713200",
-          padding: "16px",
-          color: "#713200",
+          border: "2px solid #323031",
+          padding: "1em",
+          color: "#323031",
+          boxShadow: "0 0.25em 0.5em #000",
+          filter: "drop-shadow(0 0.25em 0.75em #000)",
+          minWidth: "10em",
         },
       }
     );

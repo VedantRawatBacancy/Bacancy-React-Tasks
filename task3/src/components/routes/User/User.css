@@ -255,7 +255,7 @@ td.email {
 .bg-black {
   background-color: rgba(0, 0, 0, 0.85);
   box-shadow: 0 0 0.5em rgba(0, 0, 0, 1);
-  padding: 5em;
+  padding: 3em;
   border-radius: 2em;
 }
 
