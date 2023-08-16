@@ -61,12 +61,11 @@ const UserContext = ({ children }) => {
           <button
             onClick={() => {
               toast.dismiss(t.id);
-              console.log(flag);
-              toggleFunction(!toggle);
               flag = 1;
               if (flag === 1) {
                 array.splice(index, 1);
                 flag = 0;
+              setUpdate(!update);
               }
             }}
             className="bc-button delete-toast"
@@ -76,7 +75,6 @@ const UserContext = ({ children }) => {
           <button
             onClick={() => {
               toast.dismiss(t.id);
-              toggleFunction(!toggle);
             }}
             className="bc-button edit-user-toast"
           >

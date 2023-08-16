@@ -23,6 +23,11 @@
   flex-direction: row !important;
 }
 
+.child-container.display {
+  box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.75);
+  filter: drop-shadow(0 0 0.25em rgba(0, 0, 0, 0.5));
+}
+
 .navigate {
   color: white;
 }
@@ -252,10 +257,7 @@ td.field {
   background-color: rgba(0, 0, 0, 0.75);
 }
 
-.child-container.display {
-  box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.75);
-  filter: drop-shadow(0 0 0.25em rgba(0, 0, 0, 0.5));
-}
+
 
 td.head {
   background-color: rgba(255, 255, 255, 0.75);
@@ -304,23 +306,7 @@ td.email {
   /* background-color: #000 !important; */
 }
 
-.eye {
-  display: flex;
-  padding: 0.1em;
-}
-.bin {
-  display: flex;
-  padding: 0.1em;
-}
-.pencil {
-  display: flex;
-  padding: 0.1em;
-}
-.check {
-  display: flex;
-  padding: 0.1em;
-}
-.cross {
+.eye, .bin, .pencil, .check, .cross {
   display: flex;
   padding: 0.1em;
 }
