@@ -37,13 +37,13 @@
   border-radius: 0.15em;
   transition: 0.15s ease-in-out;
 }
-.nav > a:hover{
+.nav > a:hover {
   color: rgba(255, 255, 255, 0.85);
   border-bottom: 3px solid rgba(255, 255, 255, 0.5);
   transition: 0.15s ease-in-out;
 }
 
-.nav > a.active{
+.nav > a.active {
   color: rgba(255, 255, 255, 1);
   border-bottom: 3px solid rgb(251, 104, 51);
   transition: 0.25s;

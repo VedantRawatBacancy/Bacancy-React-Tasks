@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import DisplayUser from "./DisplayUser";
 import "./User.css";
@@ -14,7 +13,9 @@ function User() {
         <NavLink to={"./add-user"} className={"navigate"}>
           <button className="add-user">Add User</button>
         </NavLink>
-        <button className="delete-all" onClick={() => conFetch.deleteAll()}>Delete All</button>
+        <button className="delete-all" onClick={() => conFetch.deleteAll()}>
+          Delete All
+        </button>
         <div className="child-container">
           <DisplayUser />
         </div>

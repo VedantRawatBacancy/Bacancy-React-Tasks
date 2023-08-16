@@ -24,7 +24,6 @@
 
 .welcome {
   padding: 1em;
-  /* border-radius: 0.5em; */
   background-color: rgba(0, 0, 0, 0.75);
   filter: drop-shadow(0 0 0.1em #000);
   box-shadow: 0 0 0.1em rgba(0, 0, 0, 0.5);
@@ -33,7 +32,6 @@
 }
 .welcome-edit {
   padding: 1em;
-  /* border-radius: 0.5em; */
   background-color: rgba(0, 100, 50, 0.75);
   filter: drop-shadow(0 0 0.1em #000);
   box-shadow: 0 0 0.1em rgba(0, 0, 0, 0.5);
@@ -51,12 +49,11 @@
   display: flex;
   min-width: 100%;
   justify-content: center;
-
   place-items: center;
-  /* background-color: #000; */
 }
 
-.sec-1, .sec-2 {
+.sec-1,
+.sec-2 {
   height: 50%;
 }
 

@@ -98,7 +98,11 @@ function EditUser(props) {
               <button type="submit" className="bc-button edit-user">
                 <AiOutlineEdit className="check" />
               </button>
-              <button type="button" className="bc-button delete" onClick={() => navigate(-1)}>
+              <button
+                type="button"
+                className="bc-button delete"
+                onClick={() => navigate(-1)}
+              >
                 <AiOutlineRollback className="check" />
               </button>
             </Form>

@@ -6,6 +6,7 @@ const UsersData = createContext([]);
 
 const UserContext = ({ children }) => {
   const [users, setUsers] = useState([]);
+
   const [update, setUpdate] = useState(true);
 
   let flag = 0;
@@ -50,9 +51,9 @@ const UserContext = ({ children }) => {
         },
       }
     );
-  }
+  };
 
-  const deleteUser = (array, index, toggleFunction, toggle) => {
+  const deleteUser = (array, index) => {
     toast(
       (t) => (
         <span>
@@ -65,7 +66,7 @@ const UserContext = ({ children }) => {
               if (flag === 1) {
                 array.splice(index, 1);
                 flag = 0;
-              setUpdate(!update);
+                setUpdate(!update);
               }
             }}
             className="bc-button delete-toast"

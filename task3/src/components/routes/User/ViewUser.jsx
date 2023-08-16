@@ -1,4 +1,3 @@
-import React from "react";
 import { useContextData } from "../../../UserContext";
 import { NavLink, useParams } from "react-router-dom";
 import { AiOutlineClose } from "react-icons/ai";
