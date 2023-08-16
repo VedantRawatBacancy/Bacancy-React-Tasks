@@ -28,7 +28,8 @@
 }
 
 .add-user {
-  margin: 0.5em;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
   color: rgba(255, 255, 255, 0.85);
   padding: 1em;
   font-weight: 800;
@@ -51,7 +52,8 @@
   transition: 0.5s ease;
 }
 .delete-all {
-  margin: 0.5em;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
   color: rgba(255, 255, 255, 0.85);
   padding: 1em;
   font-weight: 800;

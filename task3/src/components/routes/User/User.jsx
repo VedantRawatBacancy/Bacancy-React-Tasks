@@ -16,7 +16,6 @@ function User() {
         </NavLink>
         <button className="delete-all" onClick={() => conFetch.deleteAll()}>Delete All</button>
         <div className="child-container">
-          <br></br>
           <DisplayUser />
         </div>
       </div>

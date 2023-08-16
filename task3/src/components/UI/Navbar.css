@@ -33,21 +33,19 @@
   margin: 0.5em;
   color: rgba(255, 255, 255, 0.75);
   font-weight: 400;
-  border: 2px solid transparent;
-  border-radius: 1em;
+  border-bottom: 3px solid transparent;
+  border-radius: 0.15em;
   transition: 0.15s ease-in-out;
 }
 .nav > a:hover{
-  color: rgba(255, 255, 255, 1);
-  border-radius: 1em;
-  border: 2px solid white;
+  color: rgba(255, 255, 255, 0.85);
+  border-bottom: 3px solid rgba(255, 255, 255, 0.5);
   transition: 0.15s ease-in-out;
 }
 
 .nav > a.active{
   color: rgba(255, 255, 255, 1);
-  border-bottom: 2px solid white;
-  border-top: 2px solid white;
+  border-bottom: 3px solid rgb(251, 104, 51);
   transition: 0.25s;
 }
 
