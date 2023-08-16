@@ -1,6 +1,6 @@
 import { Formik, Field, Form } from "formik";
 import { useContextData } from "../../../UserContext";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { AiFillCheckCircle, AiOutlineRollback } from "react-icons/ai";
 import "./User.css";
@@ -11,7 +11,7 @@ const pushData = (array, value) => {
 
 function AddUser() {
   const conFetch = useContextData();
-  // console.log(conFetch);
+  const navigate = useNavigate();
 
   return (
     <>
@@ -100,11 +100,9 @@ function AddUser() {
               <button type="submit" className="bc-button edit-user">
                 <AiFillCheckCircle className="check" />
               </button>
-              <NavLink to={`../user`} className={"navigate"}>
-                <button className="bc-button delete">
-                  <AiOutlineRollback className="check" />
-                </button>
-              </NavLink>
+              <button type="button" className="bc-button delete" onClick={() => navigate(-1)}>
+                <AiOutlineRollback className="check" />
+              </button>
             </Form>
           </Formik>
         </div>

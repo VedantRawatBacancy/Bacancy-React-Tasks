@@ -35,20 +35,20 @@
   font-weight: 400;
   border: 2px solid transparent;
   border-radius: 1em;
-  transition: 0.5s ease-in-out;
+  transition: 0.15s ease-in-out;
 }
-.nav > a:hover,
-.nav > a.active {
+.nav > a:hover{
   color: rgba(255, 255, 255, 1);
   border-radius: 1em;
   border: 2px solid white;
-  transition: 0.5s ease-in-out;
+  transition: 0.15s ease-in-out;
 }
 
-.active{
+.nav > a.active{
   color: rgba(255, 255, 255, 1);
-  border-radius: 1em;
-  border: 2px solid white;
+  border-bottom: 2px solid white;
+  border-top: 2px solid white;
+  transition: 0.25s;
 }
 
 .brand {

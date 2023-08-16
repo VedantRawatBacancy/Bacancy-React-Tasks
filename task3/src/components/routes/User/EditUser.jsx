@@ -1,6 +1,6 @@
 import { useContextData } from "../../../UserContext";
 import { Formik, Field, Form } from "formik";
-import { NavLink, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { AiOutlineEdit, AiOutlineRollback } from "react-icons/ai";
 import "./User.css";
@@ -8,6 +8,8 @@ import "./User.css";
 function EditUser(props) {
   const { id } = useParams();
   const conFetch = useContextData();
+
+  const navigate = useNavigate();
 
   return (
     <>
@@ -96,11 +98,9 @@ function EditUser(props) {
               <button type="submit" className="bc-button edit-user">
                 <AiOutlineEdit className="check" />
               </button>
-              <NavLink to={`../user`} className={"navigate"}>
-                <button className="bc-button delete">
-                  <AiOutlineRollback className="check" />
-                </button>
-              </NavLink>
+              <button type="button" className="bc-button delete" onClick={() => navigate(-1)}>
+                <AiOutlineRollback className="check" />
+              </button>
             </Form>
           </Formik>
         </div>

@@ -14,6 +14,7 @@ function User() {
         <NavLink to={"./add-user"} className={"navigate"}>
           <button className="add-user">Add User</button>
         </NavLink>
+        <button className="delete-all" onClick={() => conFetch.deleteAll()}>Delete All</button>
         <div className="child-container">
           <br></br>
           <DisplayUser />
