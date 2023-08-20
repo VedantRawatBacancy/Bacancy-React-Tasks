@@ -1,0 +1,38 @@
+{
+  "0": {
+    "firstName": "Vedant",
+    "lastName": "Rawat",
+    "email": "test@gmail.com",
+    "city": "Ahmedabad"
+  },
+  "1": {
+    "firstName": "Aishwary",
+    "lastName": "Rawat",
+    "email": "test2@gmail.com",
+    "city": "Bangalore"
+  },
+  "2": {
+    "firstName": "Labdhi",
+    "lastName": "Shah",
+    "email": "test3@gmail.com",
+    "city": "Goa"
+  },
+  "3": {
+    "firstName": "Zeel",
+    "lastName": "Mewada",
+    "email": "test4@gmail.com",
+    "city": "Gandhinagar"
+  },
+  "4": {
+    "firstName": "Dhruv",
+    "lastName": "Patel",
+    "email": "test5@gmail.com",
+    "city": "Ahmedabad"
+  },
+  "5": {
+    "firstName": "Om",
+    "lastName": "Mishra",
+    "email": "test6@gmail.com",
+    "city": "Ahmedabad"
+  }
+}

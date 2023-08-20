@@ -1,0 +1,39 @@
+.flex-table{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    place-items: center;
+}
+
+.col-1 {
+
+    flex-basis: 16%;
+}
+
+.col-2 {
+
+    flex-basis: 32%;
+}
+
+.col-3 {
+    flex-basis: 48%;
+}
+
+.col-4 {
+    flex-basis: 64%;
+}
+
+.col-5 {
+    flex-basis: 80%;
+}
+
+.col-6 {
+    flex-basis: 96%;
+}
+
+/*Responsive Cols*/
+@media only screen and (max-width: 480px) {
+    .col-1, .col-2, .col-3, .col-4, .col-5, .col-6{
+        flex-basis: 100%;
+    }
+}

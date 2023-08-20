@@ -1,7 +1,6 @@
 import React, { useState, createContext, useContext, useReducer } from "react";
 import { toast } from "react-hot-toast";
 import { AiFillDelete, AiOutlineRollback } from "react-icons/ai";
-import "./UserList.json";
 
 const UsersData = createContext([]);
 
@@ -68,7 +67,6 @@ const UserContext = ({ children }) => {
       "city": "Ahmedabad"
     }
   ]);
-
 
   const [update, setUpdate] = useState(true);
 

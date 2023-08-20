@@ -13,6 +13,7 @@ function AddUser() {
   const conFetch = useContextData();
   const navigate = useNavigate();
 
+
   return (
     <>
       <div className="main-container">
@@ -42,6 +43,7 @@ function AddUser() {
                 },
               });
               pushData(conFetch.users, values);
+              console.log(conFetch.users);
             }}
           >
             <Form className="bg-black">
