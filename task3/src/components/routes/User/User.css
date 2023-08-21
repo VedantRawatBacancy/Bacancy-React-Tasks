@@ -6,6 +6,16 @@
   justify-content: center;
 }
 
+.main-container-table {
+  padding: 2em;
+  padding-top: 1em;
+  display: table;
+  /* flex-direction: row; */
+  place-items: center;
+  justify-content: center;
+}
+
+
 .child-container {
   display: flex;
   flex-direction: column;
@@ -83,7 +93,7 @@
 }
 
 tr {
-  padding: 0.5em;
+  padding: 1em;
 }
 
 td.field {
@@ -144,7 +154,7 @@ td.field {
   color: #fff;
   padding: 0.5em;
   font-weight: 400;
-  font-size: 20pt;
+  font-size: 8pt;
   text-transform: uppercase;
   background-color: rgba(255, 0, 0, 0.75);
   outline: none;
@@ -192,7 +202,7 @@ td.field {
   padding: 0.5em;
   margin: 0.5em;
   font-weight: 400;
-  font-size: 20pt;
+  font-size: 8pt;
   text-transform: uppercase;
   background-color: rgba(50, 255, 10, 0.75);
   outline: none;
@@ -235,7 +245,7 @@ td.field {
   vertical-align: middle;
   padding: 0.2em 0.5em;
   font-weight: 400;
-  font-size: 20pt;
+  font-size: 8pt;
   text-transform: uppercase;
   background-color: rgba(0, 255, 195, 0.75);
   outline: none;
@@ -263,10 +273,7 @@ td.field {
 }
 
 td.head {
-  background-color: rgba(255, 255, 255, 0.75);
-  border-radius: 0.5em 0.5em 0 0;
-  color: #121212;
-  height: 5em !important;
+  width: 1em;
 }
 
 td.city {
@@ -276,6 +283,16 @@ td.city {
   outline: none;
   color: #fff;
   height: 5em !important;
+}
+
+.df-jcsb{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+.df-jcsb.p-1{
+  padding: 1em;
 }
 
 td.email {
@@ -293,12 +310,38 @@ td.email {
   border-radius: 2em;
 }
 
+.cont{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+
+table{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 80vw;
+}
+
+
+.picjcc{
+  display: flex;
+place-items: center;
+justify-content: center;
+}
+
+.w-70{
+  width: 70%;
+}
+
 .buttonContainer {
   display: flex;
   flex-direction: row;
   justify-content: center;
   place-items: center;
-  min-width: 100%;
+  /* width: 10%; */
+  /* height: 10px; */
   /* background-color: #fff; */
 }
 

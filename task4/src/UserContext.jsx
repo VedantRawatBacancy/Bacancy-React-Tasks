@@ -34,7 +34,7 @@ const UserContext = ({ children }) => {
       "firstName": "Zeel",
       "lastName": "Parekh",
       "email": "test4@gmail.com",
-      "city": "Gandhinagar"
+      "city": "Ahmedabad"
     },
     {
       "firstName": "Dhruv",
@@ -65,7 +65,67 @@ const UserContext = ({ children }) => {
       "lastName": "Dayal",
       "email": "test10@gmail.com",
       "city": "Ahmedabad"
-    }
+    },
+    {
+      "firstName": "Dhriti",
+      "lastName": "Bhatt",
+      "email": "test11@gmail.com",
+      "city": "Ahmedabad"
+    },
+    {
+      "firstName": "Smit",
+      "lastName": "Dudhat",
+      "email": "test12@gmail.com",
+      "city": "Ahmedabad"
+    },
+    {
+      "firstName": "Priya",
+      "lastName": "Intwala",
+      "email": "test13@gmail.com",
+      "city": "Valsad"
+    },
+    {
+      "firstName": "Medha",
+      "lastName": "Singh",
+      "email": "test14@gmail.com",
+      "city": "Surat"
+    },
+    {
+      "firstName": "Saurav",
+      "lastName": "Bhrambhatt",
+      "email": "test15@gmail.com",
+      "city": "Ahmedabad"
+    },
+    {
+      "firstName": "Ronak",
+      "lastName": "Shrimalli",
+      "email": "test16@gmail.com",
+      "city": "Ahmedabad"
+    },
+    {
+      "firstName": "Devang",
+      "lastName": "Desani",
+      "email": "test17@gmail.com",
+      "city": "Gondal"
+    },
+    {
+      "firstName": "Harsh",
+      "lastName": "Kubawat",
+      "email": "test18gmail.com",
+      "city": "Dwarka"
+    },
+    {
+      "firstName": "Vaidik",
+      "lastName": "Rajguru",
+      "email": "test19@gmail.com",
+      "city": "Ahmedabad"
+    },
+    {
+      "firstName": "Shubhra",
+      "lastName": "Adhikari",
+      "email": "test20@gmail.com",
+      "city": "Ahmedabad"
+    },
   ]);
 
   const [update, setUpdate] = useState(true);

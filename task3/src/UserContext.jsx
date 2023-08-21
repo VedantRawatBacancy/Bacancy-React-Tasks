@@ -69,7 +69,6 @@ const UserContext = ({ children }) => {
     }
   ]);
 
-
   const [update, setUpdate] = useState(true);
 
   let flag = 0;

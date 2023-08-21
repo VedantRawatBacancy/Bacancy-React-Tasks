@@ -1,13 +1,14 @@
-const http = require("http");
-const { BufferList } = require("bl");
+const http = require('http')
+const bl = require('bl')
 
-const bl = BufferList();
+const args = process.argv[2];
 
-http
-  .get(process.argv[2], function (response) {
-    response.setEncoding("utf8");
-    response.on(bl.append(Buffer.from('data')));
-    // response.on("error", console.error);
-    console.log(bl)
-  })
-  .on("error", console.error);
+http.get(args, function (response) {
+  response.pipe(bl(function (err, data) {
+    if (err)
+      return console.error(err)
+    data = data.toString()
+    console.log(data.length)
+    console.log(data)
+  }))
+})
