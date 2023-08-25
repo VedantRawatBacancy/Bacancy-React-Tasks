@@ -21,3 +21,8 @@ ul {
   min-width: 100vw;
   overflow: hidden;
 }
+
+.toast-button{
+  padding: 0.35em;
+  margin: 0.5em;
+}

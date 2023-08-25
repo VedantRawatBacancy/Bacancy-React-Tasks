@@ -12,16 +12,16 @@ function User() {
   const tableData = cFetch.users;
   const setter = cFetch.setIndex;
 
-  const [searchParams, setSearchParams] = useSearchParams("pageNo")
+  const [searchParams, setSearchParams] = useSearchParams("pageNo");
 
-   //DROPDOWN
+  //DROPDOWN
 
-   const options = ["5", "10", "15", "20"];
-   const defaultOption = options[0];
- 
-   const dropDownChange = (e) => {
-     setitemsPerPage(+e.value);
-   };
+  const options = ["5", "10", "15", "20"];
+  const defaultOption = options[0];
+
+  const dropDownChange = (e) => {
+    setitemsPerPage(+e.value);
+  };
 
   //PAGINATION LOGIC
 
@@ -66,73 +66,69 @@ function User() {
     setcurrentPage(number);
   };
 
- 
-
   //GET EDIT INDEX
 
   const findIndex = (value) => {
     console.log(value.firstName);
-    let index = tableData.findIndex((i) => {
-      return (
-        i.firstName === value.firstName &&
-        i.lastName === value.lastName &&
-        i.city === value.city &&
-        i.email === value.email
-      );
-    });
+    let index = cFetch.findUserIndex(value);
     setter(index);
+    console.log(index);
   };
 
-  createTheme(
-    "translucent",
-    {
-      text: {
-        primary: "#121212",
-        secondary: "#252525",
+  const deleteLocal = (value, data) => {
+    let index = cFetch.findUserIndex(value);
+    cFetch.deleteUser(data, index);
+  };
+  
+
+    createTheme(
+      "translucent",
+      {
+        text: {
+          primary: "#121212",
+          secondary: "#252525",
+        },
+        background: {
+          default: "rgba(255,255,255,0.5)",
+        },
+        context: {
+          background: "#cb4b16",
+          text: "#121212",
+        },
+        divider: {
+          default: "rgba(0,0,0,0.7)",
+        },
+        button: {
+          default: "#2aa198",
+          hover: "rgba(0,0,0,.08)",
+          focus: "rgba(255,255,255,.12)",
+          disabled: "rgba(255, 255, 255, .34)",
+        },
+        sortFocus: {
+          default: "#2aa198",
+        },
       },
-      background: {
-        default: "rgba(255,255,255,0.5)",
-      },
-      context: {
-        background: "#cb4b16",
-        text: "#121212",
-      },
-      divider: {
-        default: "rgba(0,0,0,0.15)",
-      },
-      button: {
-        default: "#2aa198",
-        hover: "rgba(0,0,0,.08)",
-        focus: "rgba(255,255,255,.12)",
-        disabled: "rgba(255, 255, 255, .34)",
-      },
-      sortFocus: {
-        default: "#2aa198",
-      },
-    },
-    "light"
-  );
+      "light"
+    );
+
+
 
   const columns = [
     {
       name: "First Name",
       selector: (row) => row.firstName,
-      sortable: true,
     },
     {
       name: "Last Name",
       selector: (row) => row.lastName,
-      sortable: true,
     },
     {
       name: "City",
       selector: (row) => row.city,
-      sortable: true,
     },
     {
       name: "Email",
       selector: (row) => row.email,
-      sortable: true,
     },
     {
       ignoreRowClick: true,
@@ -153,7 +149,16 @@ function User() {
     },
     {
       ignoreRowClick: true,
-      cell: () => <button className="delete">Delete</button>,
+      cell: (row) => (
+        <button
+          className="delete"
+          onClick={() => {
+            deleteLocal(row, tableData);
+          }}
+        >
+          Delete
+        </button>
+      ),
       allowOverflow: true,
       button: true,
     },
