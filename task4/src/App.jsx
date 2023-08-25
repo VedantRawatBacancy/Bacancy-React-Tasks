@@ -7,8 +7,7 @@ import { Toaster } from "react-hot-toast";
 
 import Home from "./components/ApplicationComponents/Home";
 import User from "./components/ApplicationComponents/UserFunctions/User";
-import UserList from "./components/ApplicationComponents/UserList";
-import AddUser from "./components/ApplicationComponents/UserFunctions/AddUser";
+import AddEditUser from "./components/ApplicationComponents/UserFunctions/AddEditUser";
 
 import "./App.css";
 import "./Main.css";
@@ -23,8 +22,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/user" element={<User />} />
-            <Route path="/userList" element={<UserList />} />
-            <Route path="/user/add-user" element={<AddUser />} />
+            <Route path="/user/add-user" element={<AddEditUser type={"add"}/>} />
+            <Route path="/user/edit-user" element={<AddEditUser type={"edit"}/>} />
           </Routes>
         </UserContext>
       </BrowserRouter>

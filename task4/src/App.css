@@ -12,3 +12,12 @@ ul {
   min-width: 100vw;
   overflow: hidden;
 }
+
+.max-container-form {
+  margin-top: 4em;
+  display: flex;
+  place-items: center;
+  justify-content: center;
+  min-width: 100vw;
+  overflow: hidden;
+}

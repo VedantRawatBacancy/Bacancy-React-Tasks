@@ -9,8 +9,42 @@
 }
 
 .form-container {
-  min-width: 100vw;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  justify-content: center;
   overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 1em;
+  padding: 7em;
+  color: #000;
+}
+
+.small-containers{
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  display: flex;
+  place-items: center;
+  justify-content: space-around;
+  padding: 0.75em;
+  border-radius: 1em;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.button-container{
+  display: flex;
+  padding: 1em;
+  flex-direction: row;
+  place-items: center;
+  justify-content: center;
+}
+
+.pagination{
+  background-color: transparent;
+}
+
+.fpnl{
+  background-color: #fff;
 }
 
 .card-container{
@@ -23,6 +57,14 @@
     border-radius: 1em;
     background-color: rgba(255, 255, 255, 0.5);
     box-shadow: 0 0 0.35em rgba(0, 0, 0, 0.2);
+}
+
+.success{
+  background-color: rgba(0, 175, 20, 1);
+}
+.delete{
+  background-color: rgba(175, 20, 5, 1);
+  color: #fff;
 }
 
 .p-10{

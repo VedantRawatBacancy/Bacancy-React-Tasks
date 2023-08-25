@@ -5,6 +5,7 @@ import { AiFillDelete, AiOutlineRollback } from "react-icons/ai";
 const UsersData = createContext([]);
 
 const UserContext = ({ children }) => {
+  const [index, setIndex] = useState();
   const [users, setUsers] = useState([
     {
       "firstName": "Vedant",
@@ -224,7 +225,7 @@ const UserContext = ({ children }) => {
   };
 
   return (
-    <UsersData.Provider value={{ users, deleteUser, editUser, deleteAll }}>
+    <UsersData.Provider value={{ users, index, setIndex, deleteUser, editUser, deleteAll }}>
       {children}
     </UsersData.Provider>
   );

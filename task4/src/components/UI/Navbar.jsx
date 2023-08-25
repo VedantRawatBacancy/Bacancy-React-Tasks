@@ -10,7 +10,6 @@ function Navbar() {
             <ul className="nav">
                 <NavLink to="/" className="nav-item"><li>Home</li></NavLink>
                 <NavLink to="/user"  className="nav-item"><li>Users</li></NavLink>
-                <NavLink to="/userList"  className="nav-item"><li>List</li></NavLink>
             </ul>
         </div>
       </div>
