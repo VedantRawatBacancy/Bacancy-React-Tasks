@@ -11,6 +11,7 @@ function User() {
   const cFetch = useContextData();
   const tableData = cFetch.users;
   const setter = cFetch.setIndex;
+  const editIndex = cFetch.index;
 
   const [searchParams, setSearchParams] = useSearchParams("pageNo");
 
@@ -77,7 +78,7 @@ function User() {
 
   const deleteLocal = (value, data) => {
     let index = cFetch.findUserIndex(value);
-    cFetch.deleteUser(data, index);
+    setter(index);
   };
   
 
@@ -96,7 +97,7 @@ function User() {
           text: "#121212",
         },
         divider: {
-          default: "rgba(0,0,0,0.7)",
+          default: "rgba(0,0,0,0.25)",
         },
         button: {
           default: "#2aa198",
@@ -133,7 +134,7 @@ function User() {
     {
       ignoreRowClick: true,
       cell: (row) => (
-        <NavLink to={"./edit-user"}>
+        <NavLink to={`./edit-user/${editIndex}`}>
           <button
             className="success"
             onClick={() => {
@@ -150,6 +151,7 @@ function User() {
     {
       ignoreRowClick: true,
       cell: (row) => (
+        <NavLink to={`./delete-user`}>
         <button
           className="delete"
           onClick={() => {
@@ -158,6 +160,7 @@ function User() {
         >
           Delete
         </button>
+        </NavLink>
       ),
       allowOverflow: true,
       button: true,

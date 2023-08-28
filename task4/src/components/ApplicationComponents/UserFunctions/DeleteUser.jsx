@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import '../Application.css'
 
+import { useContextData } from '../../../UserContext'
+
 function DeleteUser() {
-  return (
-    <div>DeleteUser</div>
-  )
+
+  const [t, sT] = useState(false);
+  
 }
 
 export default DeleteUser

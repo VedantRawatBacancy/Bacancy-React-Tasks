@@ -61,6 +61,7 @@
 
 .success{
   background-color: rgba(0, 175, 20, 1);
+  color: #fff;
 }
 .delete{
   background-color: rgba(175, 20, 5, 1);
@@ -90,6 +91,11 @@
   background-color: #fff;
   color: #000;
   border: 1px solid #000;
+}
+
+.aef-button{
+  padding: 1em;
+  margin: 0.25em;
 }
 
 .bgtest{

@@ -1,6 +1,6 @@
 import { Formik, Field, Form } from "formik";
 import { useContextData } from "../../../UserContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { AiFillCheckCircle, AiOutlineRollback } from "react-icons/ai";
 
@@ -10,7 +10,12 @@ const pushData = (array, value) => {
   array.push(value);
 };
 
+
+
 function AddEditUser(props) {
+
+  const { id } = useParams();
+
   const conFetch = useContextData();
   const navigate = useNavigate();
 
@@ -39,7 +44,6 @@ function AddEditUser(props) {
     toastBorder = "orange";
   }
 
-  console.log(conFetch.index);
   return (
     <>
       <div className="max-container-form">
@@ -121,12 +125,12 @@ function AddEditUser(props) {
 
             <br />
             <div className="button-container">
-              <button type="submit" className="bc-button success">
+              <button type="submit" className="aef-button success">
                 <AiFillCheckCircle className="check" />
               </button>
               <button
                 type="button"
-                className="bc-button delete"
+                className="aef-button delete"
                 onClick={() => navigate(-1)}
               >
                 <AiOutlineRollback className="check" />
