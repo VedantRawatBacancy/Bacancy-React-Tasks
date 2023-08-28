@@ -14,13 +14,11 @@ const pushData = (array, value) => {
 
 function AddEditUser(props) {
 
-  const { id } = useParams();
 
   const conFetch = useContextData();
   const navigate = useNavigate();
 
-  const editVal = conFetch.users;
-  const i = conFetch.index;
+  const editVal = conFetch.editedUser;
 
   let initVal = {};
   let head = "";
@@ -36,7 +34,7 @@ function AddEditUser(props) {
     toastBorder = "green";
     console.log("add mode");
   } else if (props.type == "edit") {
-    initVal = editVal[i];
+    initVal = editVal;
     head = "Edit User";
     console.log("edit Mode");
     toastName = "User Edited";
@@ -66,12 +64,24 @@ function AddEditUser(props) {
               },
             });
             if(props.type==="add"){pushData(conFetch.users, values);}
-            else if(props.type==="edit"){conFetch.editUser(i, values)}
+            else if(props.type==="edit"){conFetch.editUser(values)}
           }}
         >
           <Form className="form-container">
             <h2>{head}</h2>
 
+            <td className="field">
+              <label htmlFor="id">ID</label>
+            </td>
+            <td>
+              <Field
+                id="id"
+                name="id"
+                placeholder="0,1,2,3,4,..."
+                className="form-input"
+              />
+            </td>
+            <br />
             <td className="field">
               <label htmlFor="firstName">First Name</label>
             </td>

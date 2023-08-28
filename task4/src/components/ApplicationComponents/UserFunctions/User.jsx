@@ -1,37 +1,67 @@
 import React, { useEffect, useState } from "react";
 import { useContextData } from "../../../UserContext";
 import DataTable, { createTheme } from "react-data-table-component";
-import { NavLink, useSearchParams } from "react-router-dom";
+import {
+  NavLink,
+  useNavigate,
+  useSearchParams,
+  useParams,
+} from "react-router-dom";
 import "../Application.css";
 
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
 
 function User() {
-  const cFetch = useContextData();
-  const tableData = cFetch.users;
-  const setter = cFetch.setIndex;
-  const editIndex = cFetch.index;
+  //pagination states
 
-  const [searchParams, setSearchParams] = useSearchParams("pageNo");
+  const [searchParams, setSearchParams] = useSearchParams({
+    pageNo: 1,
+    items: 5,
+  });
 
-  //DROPDOWN
+  let pageNo = searchParams.get("pageNo");
+  let items = searchParams.get("items");
+
+  const [currentPage, setcurrentPage] = useState(pageNo);
+
+  const [pageNumberLimit, setpageNumberLimit] = useState(5);
+  const [maxPageNumberLimit, setmaxPageNumberLimit] = useState(10);
+  const [minPageNumberLimit, setminPageNumberLimit] = useState(0);
 
   const options = ["5", "10", "15", "20"];
   const defaultOption = options[0];
+
+  const [itemsPerPage, setitemsPerPage] = useState(items);
+
+  const cFetch = useContextData();
+
+  const { dId } = useParams();
+  const { eId } = useParams();
+
+  const navigate = useNavigate();
+
+  const tableData = cFetch.users;
+
+  useEffect(() => {
+    setSearchParams({ pageNo: currentPage, items: itemsPerPage });
+  }, [currentPage, itemsPerPage]);
+
+  //DELETE USER EFFECT
+
+  useEffect(() => {
+    if (dId) {
+      cFetch.deleteUser(dId);
+    }
+  }, [dId]);
+
+  //DROPDOWN
 
   const dropDownChange = (e) => {
     setitemsPerPage(+e.value);
   };
 
   //PAGINATION LOGIC
-
-  const [currentPage, setcurrentPage] = useState(1);
-  const [itemsPerPage, setitemsPerPage] = useState(defaultOption);
-
-  const [pageNumberLimit, setpageNumberLimit] = useState(5);
-  const [maxPageNumberLimit, setmaxPageNumberLimit] = useState(10);
-  const [minPageNumberLimit, setminPageNumberLimit] = useState(0);
 
   const pages = [];
   for (let i = 1; i <= Math.ceil(tableData.length / itemsPerPage); i++) {
@@ -45,6 +75,10 @@ function User() {
   const handlePageEvent = (event) => {
     setcurrentPage(Number(event.target.id));
   };
+
+  useEffect(() => {
+    console.log(currentPage);
+  }, [currentPage]);
 
   const renderPageNumbers = pages.map((number) => {
     if (number < maxPageNumberLimit + 1 && number > minPageNumberLimit) {
@@ -65,56 +99,46 @@ function User() {
 
   const handlePagination = (number) => {
     setcurrentPage(number);
+    setSearchParams(number);
   };
 
-  //GET EDIT INDEX
+  //SEARCH
 
-  const findIndex = (value) => {
-    console.log(value.firstName);
-    let index = cFetch.findUserIndex(value);
-    setter(index);
-    console.log(index);
-  };
-
-  const deleteLocal = (value, data) => {
-    let index = cFetch.findUserIndex(value);
-    setter(index);
-  };
-  
-
-    createTheme(
-      "translucent",
-      {
-        text: {
-          primary: "#121212",
-          secondary: "#252525",
-        },
-        background: {
-          default: "rgba(255,255,255,0.5)",
-        },
-        context: {
-          background: "#cb4b16",
-          text: "#121212",
-        },
-        divider: {
-          default: "rgba(0,0,0,0.25)",
-        },
-        button: {
-          default: "#2aa198",
-          hover: "rgba(0,0,0,.08)",
-          focus: "rgba(255,255,255,.12)",
-          disabled: "rgba(255, 255, 255, .34)",
-        },
-        sortFocus: {
-          default: "#2aa198",
-        },
+  createTheme(
+    "translucent",
+    {
+      text: {
+        primary: "#121212",
+        secondary: "#252525",
       },
-      "light"
-    );
-
-
+      background: {
+        default: "rgba(255,255,255,0.5)",
+      },
+      context: {
+        background: "#cb4b16",
+        text: "#121212",
+      },
+      divider: {
+        default: "rgba(0,0,0,0.25)",
+      },
+      button: {
+        default: "#2aa198",
+        hover: "rgba(0,0,0,.08)",
+        focus: "rgba(255,255,255,.12)",
+        disabled: "rgba(255, 255, 255, .34)",
+      },
+      sortFocus: {
+        default: "#2aa198",
+      },
+    },
+    "light"
+  );
 
   const columns = [
+    {
+      name: "ID",
+      selector: (row) => row.id,
+    },
     {
       name: "First Name",
       selector: (row) => row.firstName,
@@ -134,11 +158,12 @@ function User() {
     {
       ignoreRowClick: true,
       cell: (row) => (
-        <NavLink to={`./edit-user/${editIndex}`}>
+        <NavLink to={`./edit-user/${row.id}`}>
           <button
             className="success"
             onClick={() => {
-              findIndex(row);
+              cFetch.setEditedUser(row);
+              console.log(cFetch.editedUser);
             }}
           >
             Edit
@@ -151,16 +176,16 @@ function User() {
     {
       ignoreRowClick: true,
       cell: (row) => (
-        <NavLink to={`./delete-user`}>
+        // <button to={`./delete-user`}>
         <button
           className="delete"
           onClick={() => {
-            deleteLocal(row, tableData);
+            navigate(`./delete-user/${row.id}`);
           }}
         >
           Delete
         </button>
-        </NavLink>
+        // {/* </button> */}
       ),
       allowOverflow: true,
       button: true,
@@ -171,17 +196,29 @@ function User() {
     <>
       <div className="max-container">
         <div className="p-10 r-10">
-          <NavLink to={"./add-user"}>
-            <button className="add-user">Add User</button>
-          </NavLink>
-
           <div className="small-containers">
-            <Dropdown
-              options={options}
-              value={defaultOption}
-              onChange={dropDownChange}
-              placeholder="Select an option"
-            />
+            <div className="sub-container">
+              <h2>Items Per Page</h2>
+              <Dropdown
+                options={options}
+                value={items}
+                onChange={dropDownChange}
+                placeholder="Select an option"
+              />
+            </div>
+            <div className="sub-container">
+              <NavLink to={"./add-user"}>
+                <button className="add-user">Add User</button>
+              </NavLink>
+            </div>
+            <div className="sub-container">
+              <h2>Search</h2>
+              <input
+                type="text"
+                placeholder="Enter Search Text"
+                className="search"
+              />
+            </div>
           </div>
 
           <DataTable
@@ -193,7 +230,7 @@ function User() {
 
           <div className="small-containers">
             <button
-              className="fpnl"
+              className="fpnl pagination"
               onClick={() => {
                 handlePagination(1);
               }}
@@ -202,7 +239,7 @@ function User() {
               {"<<"}
             </button>
             <button
-              className="fpnl"
+              className="fpnl pagination"
               onClick={() => {
                 handlePagination(currentPage - 1);
               }}
@@ -212,7 +249,7 @@ function User() {
             </button>
             {renderPageNumbers}
             <button
-              className="fpnl"
+              className="fpnl pagination"
               onClick={() => {
                 handlePagination(currentPage + 1);
               }}
@@ -221,7 +258,7 @@ function User() {
               {">"}
             </button>
             <button
-              className="fpnl"
+              className="fpnl pagination"
               onClick={() => {
                 handlePagination(pages.length);
               }}

@@ -12,24 +12,18 @@ import AddEditUser from "./components/ApplicationComponents/UserFunctions/AddEdi
 
 import "./App.css";
 import "./Main.css";
-import DeleteUser from "./components/ApplicationComponents/UserFunctions/DeleteUser";
 
 function App() {
   const cFetch = useContextData();
 
-  
   const index = cFetch.index;
   const data = cFetch.users;
-  
-  const dUser = () => {
-    cFetch.deleteUser(data, index);
-  };
 
   return (
     <>
       <BrowserRouter>
+        <Toaster position="top-center" reverseOrder={true} />
         <UserContext>
-          <Toaster position="top-center" reverseOrder={false} />
           <Navbar></Navbar>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -39,10 +33,10 @@ function App() {
               element={<AddEditUser type={"add"} />}
             />
             <Route
-              path="/user/edit-user/:id"
+              path="/user/edit-user/:eId"
               element={<AddEditUser type={"edit"} />}
             />
-            {/* <Route path="/user/delete-user" element={dUser(data, index)} /> */}
+            <Route path="/user/delete-user/:dId" element={<User />} />
           </Routes>
         </UserContext>
       </BrowserRouter>
