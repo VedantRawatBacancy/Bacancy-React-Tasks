@@ -87,13 +87,36 @@
   border-radius: 1em 1em 0 0 !important;
 }
 
+.dropdown{
+  border-radius: 1em !important;
+}
+
+.dropdown-control{
+  border-radius: 0.5em 0.5em 0 0 !important;
+  background-color: #fff !important;
+}
+
+.dropdown-menu{
+  border-radius: 0 0 0.5em 0.5em !important;
+}
+
+.dropdown-place{
+  
+}
+
 .sub-container {
   display: flex;
   flex-direction: row;
   place-items: center;
   justify-content: space-evenly;
-  width: 50%;
+  width: 75%;
   color: #000;
+}
+
+.tri-container{
+  display: flex;
+  flex-direction: column;
+  width: 75%;
 }
 
 .search {

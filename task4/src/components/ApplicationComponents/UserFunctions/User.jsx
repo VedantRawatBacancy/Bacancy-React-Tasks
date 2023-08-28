@@ -18,10 +18,12 @@ function User() {
   const [searchParams, setSearchParams] = useSearchParams({
     pageNo: 1,
     items: 5,
+    sort: "noSorting",
   });
 
   let pageNo = searchParams.get("pageNo");
   let items = searchParams.get("items");
+  let sort = searchParams.get("sort");
 
   const [currentPage, setcurrentPage] = useState(pageNo);
 
@@ -29,10 +31,16 @@ function User() {
   const [maxPageNumberLimit, setmaxPageNumberLimit] = useState(10);
   const [minPageNumberLimit, setminPageNumberLimit] = useState(0);
 
+  const [searchItem, setSearchItem] = useState();
+  const [filteredResults, setFilteredResults] = useState();
+
   const options = ["5", "10", "15", "20"];
   const defaultOption = options[0];
 
+  const sortOptions = ["firstName", "lastName", "email", "city"];
+
   const [itemsPerPage, setitemsPerPage] = useState(items);
+  const [sortedBy, setSortedBy] = useState(sort);
 
   const cFetch = useContextData();
 
@@ -41,11 +49,15 @@ function User() {
 
   const navigate = useNavigate();
 
-  const tableData = cFetch.users;
+  let tableData = cFetch.users;
 
   useEffect(() => {
-    setSearchParams({ pageNo: currentPage, items: itemsPerPage });
-  }, [currentPage, itemsPerPage]);
+    setSearchParams({
+      pageNo: currentPage,
+      items: itemsPerPage,
+      sort: sortedBy,
+    });
+  }, [currentPage, itemsPerPage, sortedBy]);
 
   //DELETE USER EFFECT
 
@@ -57,8 +69,15 @@ function User() {
 
   //DROPDOWN
 
+  const [open, setOpen] = useState(false);
+
   const dropDownChange = (e) => {
     setitemsPerPage(+e.value);
+  };
+
+  const sortDropDownChange = (e) => {
+    setSortedBy(e.value);
+
   };
 
   //PAGINATION LOGIC
@@ -68,17 +87,34 @@ function User() {
     pages.push(i);
   }
 
+  const [searchType, setSearchType] = useState();
+
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const pageItems = tableData.slice(indexOfFirstItem, indexOfLastItem);
+
+  const [pageItems, setPageItems] = useState(
+    tableData.slice(indexOfFirstItem, indexOfLastItem)
+  );
+
+  useEffect(() => {
+    if (!searchItem) {
+      setPageItems(tableData.slice(indexOfFirstItem, indexOfLastItem));
+    }
+  }, [currentPage, itemsPerPage, sortedBy]);
+
+  const searchHandler = (value) => {
+    setSearchItem(value);
+
+    tableData = tableData.filter((val) =>
+      val.firstName.includes(value) || val.lastName.includes(value) ? val : null
+    );
+
+    setPageItems(tableData.slice(indexOfFirstItem, indexOfLastItem));
+  };
 
   const handlePageEvent = (event) => {
     setcurrentPage(Number(event.target.id));
   };
-
-  useEffect(() => {
-    console.log(currentPage);
-  }, [currentPage]);
 
   const renderPageNumbers = pages.map((number) => {
     if (number < maxPageNumberLimit + 1 && number > minPageNumberLimit) {
@@ -96,6 +132,8 @@ function User() {
       return null;
     }
   });
+
+  const [toggle, setToggle] = useState(false);
 
   const handlePagination = (number) => {
     setcurrentPage(number);
@@ -198,12 +236,28 @@ function User() {
         <div className="p-10 r-10">
           <div className="small-containers">
             <div className="sub-container">
-              <h2>Items Per Page</h2>
+              <h4>Sorted By</h4>
+              <Dropdown
+                options={sortOptions}
+                value={sort}
+                onChange={sortDropDownChange}
+                placeholder="Select an option"
+                className="dropdown"
+                controlClassName="dropdown-control"
+                menuClassName="dropdown-menu"
+              />
+            </div>
+
+            <div className="sub-container">
+              <h4>Items Per Page</h4>
               <Dropdown
                 options={options}
                 value={items}
                 onChange={dropDownChange}
                 placeholder="Select an option"
+                className="dropdown"
+                controlClassName="dropdown-control"
+                menuClassName="dropdown-menu"
               />
             </div>
             <div className="sub-container">
@@ -211,12 +265,16 @@ function User() {
                 <button className="add-user">Add User</button>
               </NavLink>
             </div>
+
             <div className="sub-container">
-              <h2>Search</h2>
+              <h4>Search</h4>
               <input
                 type="text"
                 placeholder="Enter Search Text"
                 className="search"
+                onChange={(e) => {
+                  searchHandler(e.target.value);
+                }}
               />
             </div>
           </div>
