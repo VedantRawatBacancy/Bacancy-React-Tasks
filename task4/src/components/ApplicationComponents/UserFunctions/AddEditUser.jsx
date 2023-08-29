@@ -16,7 +16,6 @@ function AddEditUser(props) {
     navigate('/user');
   };
   
-
   const editVal = conFetch.editedUser;
 
   let initVal = {};
