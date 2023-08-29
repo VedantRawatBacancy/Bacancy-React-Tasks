@@ -19,11 +19,13 @@ function User() {
     pageNo: 1,
     items: 5,
     sort: "noSorting",
+    search: "",
   });
 
   let pageNo = searchParams.get("pageNo");
   let items = searchParams.get("items");
   let sort = searchParams.get("sort");
+  let search = searchParams.get("search");
 
   const [currentPage, setcurrentPage] = useState(pageNo);
 
@@ -31,7 +33,7 @@ function User() {
   const [maxPageNumberLimit, setmaxPageNumberLimit] = useState(10);
   const [minPageNumberLimit, setminPageNumberLimit] = useState(0);
 
-  const [searchItem, setSearchItem] = useState();
+  const [searchItem, setSearchItem] = useState(search);
   const [filteredResults, setFilteredResults] = useState();
 
   const options = ["5", "10", "15", "20"];
@@ -56,8 +58,9 @@ function User() {
       pageNo: currentPage,
       items: itemsPerPage,
       sort: sortedBy,
+      search: searchItem,
     });
-  }, [currentPage, itemsPerPage, sortedBy]);
+  }, [currentPage, itemsPerPage, sortedBy, searchItem]);
 
   //DELETE USER EFFECT
 
@@ -77,7 +80,6 @@ function User() {
 
   const sortDropDownChange = (e) => {
     setSortedBy(e.value);
-
   };
 
   //PAGINATION LOGIC
@@ -100,17 +102,22 @@ function User() {
     if (!searchItem) {
       setPageItems(tableData.slice(indexOfFirstItem, indexOfLastItem));
     }
-  }, [currentPage, itemsPerPage, sortedBy]);
+  }, [currentPage, itemsPerPage, sortedBy, searchItem]);
 
   const searchHandler = (value) => {
     setSearchItem(value);
-
+    setSearchParams(value);
     tableData = tableData.filter((val) =>
       val.firstName.includes(value) || val.lastName.includes(value) ? val : null
     );
-
     setPageItems(tableData.slice(indexOfFirstItem, indexOfLastItem));
   };
+
+  useEffect(() => {
+    if(search){
+      searchHandler(searchItem);
+    }
+  }, [searchItem])
 
   const handlePageEvent = (event) => {
     setcurrentPage(Number(event.target.id));
@@ -271,6 +278,7 @@ function User() {
               <input
                 type="text"
                 placeholder="Enter Search Text"
+                value={search}
                 className="search"
                 onChange={(e) => {
                   searchHandler(e.target.value);
