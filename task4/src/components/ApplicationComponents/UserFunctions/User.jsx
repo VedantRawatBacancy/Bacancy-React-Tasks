@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { Children, useEffect, useState } from "react";
 import { useContextData } from "../../../UserContext";
 import DataTable, { createTheme } from "react-data-table-component";
 import {
@@ -11,6 +11,7 @@ import "../Application.css";
 
 import Dropdown from "react-dropdown";
 import "react-dropdown/style.css";
+import { render } from "react-dom";
 
 function User() {
   //pagination states
@@ -80,7 +81,7 @@ function User() {
 
   //PAGINATION LOGIC
 
-  const pages = [];
+  var pages = [];
   for (let i = 1; i <= Math.ceil(tableData.length / itemsPerPage); i++) {
     pages.push(i);
   }
@@ -223,6 +224,10 @@ function User() {
       return null;
     }
   });
+
+  const pageRender = () => {
+    return renderPageNumbers;
+  };
 
   const [toggle, setToggle] = useState(false);
 
@@ -402,6 +407,9 @@ function User() {
               {"<"}
             </button>
             {renderPageNumbers}
+            {/* {() => {
+              pageRender();
+            }} */}
             <button
               className="fpnl pagination"
               onClick={() => {
