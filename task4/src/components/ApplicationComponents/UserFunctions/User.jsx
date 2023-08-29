@@ -18,7 +18,7 @@ function User() {
   const [searchParams, setSearchParams] = useSearchParams({
     pageNo: 1,
     items: 5,
-    sort: "noSorting",
+    sort: "default",
     search: "",
   });
 
@@ -36,13 +36,13 @@ function User() {
   const [searchItem, setSearchItem] = useState(search);
   const [filteredResults, setFilteredResults] = useState();
 
+  const [itemsPerPage, setitemsPerPage] = useState(items);
+  const [sortedBy, setSortedBy] = useState(sort);
+
   const options = ["5", "10", "15", "20"];
   const defaultOption = options[0];
 
-  const sortOptions = ["firstName", "lastName", "email", "city"];
-
-  const [itemsPerPage, setitemsPerPage] = useState(items);
-  const [sortedBy, setSortedBy] = useState(sort);
+  const sortOptions = ["default", "firstName", "lastName", "email", "city"];
 
   const cFetch = useContextData();
 
@@ -78,10 +78,6 @@ function User() {
     setitemsPerPage(+e.value);
   };
 
-  const sortDropDownChange = (e) => {
-    setSortedBy(e.value);
-  };
-
   //PAGINATION LOGIC
 
   const pages = [];
@@ -98,6 +94,82 @@ function User() {
     tableData.slice(indexOfFirstItem, indexOfLastItem)
   );
 
+  const sortDropDownChange = (e) => {
+    setSortedBy(e.value);
+    let type = e.value;
+    if (type === "firstName") {
+      tableData.sort((a, b) => {
+        let fa = a.firstName.toLowerCase(),
+          fb = b.firstName.toLowerCase();
+
+        if (fa < fb) {
+          return -1;
+        }
+        if (fa > fb) {
+          return 1;
+        }
+        return 0;
+      });
+    }
+    else if (type === "lastName") {
+      tableData.sort((a, b) => {
+        let fa = a.lastName.toLowerCase(),
+          fb = b.lastName.toLowerCase();
+
+        if (fa < fb) {
+          return -1;
+        }
+        if (fa > fb) {
+          return 1;
+        }
+        return 0;
+      });
+    }
+    else if (type === "email") {
+      tableData.sort((a, b) => {
+        let fa = a.email.toLowerCase(),
+          fb = b.email.toLowerCase();
+
+        if (fa < fb) {
+          return -1;
+        }
+        if (fa > fb) {
+          return 1;
+        }
+        return 0;
+      });
+    }
+    else if (type === "city") {
+      tableData.sort((a, b) => {
+        let fa = a.city.toLowerCase(),
+          fb = b.city.toLowerCase();
+
+        if (fa < fb) {
+          return -1;
+        }
+        if (fa > fb) {
+          return 1;
+        }
+        return 0;
+      });
+    }
+    else{
+      tableData.sort((a, b) => {
+        let fa = a.id,
+          fb = b.id;
+
+        if (fa < fb) {
+          return -1;
+        }
+        if (fa > fb) {
+          return 1;
+        }
+        return 0;
+      });
+    }
+    setPageItems(tableData.slice(indexOfFirstItem, indexOfLastItem));
+  };
+
   useEffect(() => {
     if (!searchItem) {
       setPageItems(tableData.slice(indexOfFirstItem, indexOfLastItem));
@@ -106,7 +178,12 @@ function User() {
 
   const searchHandler = (value) => {
     setSearchItem(value);
-    setSearchParams(value);
+    setSearchParams({
+      pageNo: currentPage,
+      items: itemsPerPage,
+      sort: sortedBy,
+      search: value,
+    });
     tableData = tableData.filter((val) =>
       val.firstName.includes(value) || val.lastName.includes(value) ? val : null
     );
@@ -114,10 +191,10 @@ function User() {
   };
 
   useEffect(() => {
-    if(search){
+    if (search) {
       searchHandler(searchItem);
     }
-  }, [searchItem])
+  }, [searchItem]);
 
   const handlePageEvent = (event) => {
     setcurrentPage(Number(event.target.id));

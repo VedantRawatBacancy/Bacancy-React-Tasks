@@ -30,16 +30,16 @@ function AddEditUser(props) {
     initVal = { firstName: "", lastName: "", email: "", city: "" };
     head = "Add User";
     toastName = "User Added";
-    toastColor = "green";
-    toastBorder = "green";
+    toastColor = "rgba(50, 100, 10, 1)";
+    toastBorder = "rgba(50, 100, 10, 1)";
     console.log("add mode");
   } else if (props.type == "edit") {
     initVal = editVal;
     head = "Edit User";
     console.log("edit Mode");
     toastName = "User Edited";
-    toastColor = "orange";
-    toastBorder = "orange";
+    toastColor = "red";
+    toastBorder = "red";
   }
 
   return (
@@ -57,7 +57,7 @@ function AddEditUser(props) {
                 padding: "16px",
                 color: `${toastColor}`,
                 filter: "drop-shadow(0 0 0.25em #000)",
-              },
+              },  
               iconTheme: {
                 primary: `${toastColor}`,
                 secondary: "#FFFAEE",
