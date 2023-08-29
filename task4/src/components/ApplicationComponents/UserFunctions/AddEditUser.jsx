@@ -6,17 +6,16 @@ import { AiFillCheckCircle, AiOutlineRollback } from "react-icons/ai";
 
 import "../Application.css";
 
-const pushData = (array, value) => {
-  array.push(value);
-};
-
-
-
 function AddEditUser(props) {
-
 
   const conFetch = useContextData();
   const navigate = useNavigate();
+
+  const pushData = (array, value) => {
+    array.push(value);
+    navigate('/user');
+  };
+  
 
   const editVal = conFetch.editedUser;
 

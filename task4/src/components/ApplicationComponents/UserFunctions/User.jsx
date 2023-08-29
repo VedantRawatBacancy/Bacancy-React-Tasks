@@ -94,10 +94,15 @@ function User() {
     tableData.slice(indexOfFirstItem, indexOfLastItem)
   );
 
-  const sortDropDownChange = (e) => {
-    setSortedBy(e.value);
-    let type = e.value;
-    if (type === "firstName") {
+  const sortDropDownChange = (value) => {
+    setSortedBy(value);
+    setSearchParams({
+      pageNo: currentPage,
+      items: itemsPerPage,
+      sort: sortedBy,
+      search: searchItem,
+    });
+    if (value === "firstName") {
       tableData.sort((a, b) => {
         let fa = a.firstName.toLowerCase(),
           fb = b.firstName.toLowerCase();
@@ -111,7 +116,7 @@ function User() {
         return 0;
       });
     }
-    else if (type === "lastName") {
+    else if (value === "lastName") {
       tableData.sort((a, b) => {
         let fa = a.lastName.toLowerCase(),
           fb = b.lastName.toLowerCase();
@@ -125,7 +130,7 @@ function User() {
         return 0;
       });
     }
-    else if (type === "email") {
+    else if (value === "email") {
       tableData.sort((a, b) => {
         let fa = a.email.toLowerCase(),
           fb = b.email.toLowerCase();
@@ -139,7 +144,7 @@ function User() {
         return 0;
       });
     }
-    else if (type === "city") {
+    else if (value === "city") {
       tableData.sort((a, b) => {
         let fa = a.city.toLowerCase(),
           fb = b.city.toLowerCase();
@@ -171,10 +176,16 @@ function User() {
   };
 
   useEffect(() => {
+    if (sort) {
+      sortDropDownChange(sortedBy);
+    }
+  }, [sortedBy]);
+
+  useEffect(() => {
     if (!searchItem) {
       setPageItems(tableData.slice(indexOfFirstItem, indexOfLastItem));
     }
-  }, [currentPage, itemsPerPage, sortedBy, searchItem]);
+  }, [currentPage, itemsPerPage, sortedBy, searchItem, tableData]);
 
   const searchHandler = (value) => {
     setSearchItem(value);
@@ -324,7 +335,7 @@ function User() {
               <Dropdown
                 options={sortOptions}
                 value={sort}
-                onChange={sortDropDownChange}
+                onChange={(e) => {sortDropDownChange(e.value)}}
                 placeholder="Select an option"
                 className="dropdown"
                 controlClassName="dropdown-control"
