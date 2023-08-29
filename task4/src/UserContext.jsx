@@ -214,8 +214,10 @@ const UserContext = ({ children }) => {
   };
 
   const editUser = (value) => {
-    let updatedArray = users.map((val) => +val.id === +editedUser.id ? value : val);
-    console.log(updatedArray)
+    let updatedArray = users.map((val) =>
+      +val.id === +editedUser.id ? value : val
+    );
+    console.log(updatedArray);
     setUsers(updatedArray);
     navigate("./user");
   };
@@ -230,7 +232,7 @@ const UserContext = ({ children }) => {
         deleteUser,
         editUser,
         setEditedUser,
-        setUsers
+        setUsers,
       }}
     >
       {children}

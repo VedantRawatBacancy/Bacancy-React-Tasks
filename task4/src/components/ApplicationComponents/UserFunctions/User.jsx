@@ -115,8 +115,7 @@ function User() {
         }
         return 0;
       });
-    }
-    else if (value === "lastName") {
+    } else if (value === "lastName") {
       tableData.sort((a, b) => {
         let fa = a.lastName.toLowerCase(),
           fb = b.lastName.toLowerCase();
@@ -129,8 +128,7 @@ function User() {
         }
         return 0;
       });
-    }
-    else if (value === "email") {
+    } else if (value === "email") {
       tableData.sort((a, b) => {
         let fa = a.email.toLowerCase(),
           fb = b.email.toLowerCase();
@@ -143,8 +141,7 @@ function User() {
         }
         return 0;
       });
-    }
-    else if (value === "city") {
+    } else if (value === "city") {
       tableData.sort((a, b) => {
         let fa = a.city.toLowerCase(),
           fb = b.city.toLowerCase();
@@ -157,8 +154,7 @@ function User() {
         }
         return 0;
       });
-    }
-    else{
+    } else {
       tableData.sort((a, b) => {
         let fa = a.id,
           fb = b.id;
@@ -335,7 +331,9 @@ function User() {
               <Dropdown
                 options={sortOptions}
                 value={sort}
-                onChange={(e) => {sortDropDownChange(e.value)}}
+                onChange={(e) => {
+                  sortDropDownChange(e.value);
+                }}
                 placeholder="Select an option"
                 className="dropdown"
                 controlClassName="dropdown-control"

@@ -7,22 +7,20 @@ import { AiFillCheckCircle, AiOutlineRollback } from "react-icons/ai";
 import "../Application.css";
 
 function AddEditUser(props) {
-
   const conFetch = useContextData();
   const navigate = useNavigate();
 
   const pushData = (array, value) => {
     array.push(value);
-    navigate('/user');
+    navigate("/user");
   };
-  
-  const editVal = conFetch.editedUser;
 
+  const editVal = conFetch.editedUser;
   let initVal = {};
-  let head = "";
-  let toastName = "";
-  let toastColor = "";
-  let toastBorder = "";
+  let head = "",
+    toastName = "",
+    toastColor = "",
+    toastBorder = "";
 
   if (props.type == "add") {
     initVal = { firstName: "", lastName: "", email: "", city: "" };
@@ -55,14 +53,17 @@ function AddEditUser(props) {
                 padding: "16px",
                 color: `${toastColor}`,
                 filter: "drop-shadow(0 0 0.25em #000)",
-              },  
+              },
               iconTheme: {
                 primary: `${toastColor}`,
                 secondary: "#FFFAEE",
               },
             });
-            if(props.type==="add"){pushData(conFetch.users, values);}
-            else if(props.type==="edit"){conFetch.editUser(values)}
+            if (props.type === "add") {
+              pushData(conFetch.users, values);
+            } else if (props.type === "edit") {
+              conFetch.editUser(values);
+            }
           }}
         >
           <Form className="form-container">
