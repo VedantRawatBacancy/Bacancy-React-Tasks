@@ -338,6 +338,7 @@ function User() {
                 className="dropdown"
                 controlClassName="dropdown-control"
                 menuClassName="dropdown-menu"
+                placeholderClassName="dropdown-placeholder"
               />
             </div>
 
@@ -351,6 +352,7 @@ function User() {
                 className="dropdown"
                 controlClassName="dropdown-control"
                 menuClassName="dropdown-menu"
+                placeholderClassName="dropdown-placeholder"
               />
             </div>
             <div className="sub-container">
