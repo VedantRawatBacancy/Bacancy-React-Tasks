@@ -6,6 +6,7 @@ import {
   useNavigate,
   useSearchParams,
   useParams,
+  createSearchParams,
 } from "react-router-dom";
 import "../Application.css";
 
@@ -314,7 +315,10 @@ function User() {
         <button
           className="delete"
           onClick={() => {
-            navigate(`./delete-user/${row.id}`);
+            navigate({
+              pathname: `./delete-user/${row.id}`,
+              search: `?${createSearchParams(searchParams)}`,
+            });
           }}
         >
           Delete
@@ -330,7 +334,7 @@ function User() {
     <>
       <div className="max-container">
         <div className="p-10 r-10">
-          <div className="small-containers">
+          <div className="small-containers top">
             <div className="sub-container">
               <h4>Sorted By</h4>
               <Dropdown
@@ -385,9 +389,10 @@ function User() {
             data={pageItems}
             theme="translucent"
             highlightOnHover={true}
+            className="table"
           />
 
-          <div className="small-containers">
+          <div className="small-containers pag">
             <button
               className="fpnl pagination"
               onClick={() => {

@@ -180,7 +180,8 @@ const UserContext = ({ children }) => {
               if (flag === 1) {
                 let updatedArray = users.filter((val) => +val.id !== +userId);
                 setUsers(updatedArray);
-                navigate("./user");
+                console.log("first");
+                navigate(-1);
               }
             }}
             className="toast-button delete"
@@ -189,8 +190,9 @@ const UserContext = ({ children }) => {
           </button>
           <button
             onClick={() => {
+              navigate(-1);
               toast.dismiss(t.id);
-              navigate("./user");
+              console.log("first");
             }}
             className="toast-button success"
           >
